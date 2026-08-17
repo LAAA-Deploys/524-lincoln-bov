@@ -24,16 +24,6 @@
         "bio": "Filip Niculete advises multifamily owners and investors throughout Southern California with an emphasis on disciplined marketing and execution."
       },
       {
-        "name": "Glen Scher",
-        "title": "Senior Managing Director Investments",
-        "phone": "(818) 212-2808",
-        "tel": "8182122808",
-        "email": "Glen.Scher@marcusmillichap.com",
-        "license": "CA License: 01962976",
-        "headshot": "images/headshot_glen-scher.jpg",
-        "bio": "Glen Scher advises apartment owners and investors across Southern California with a focus on evidence-based pricing and transaction execution."
-      },
-      {
         "name": "Morgan Wetmore",
         "title": "Associate",
         "phone": "(818) 212-2724",
@@ -42,6 +32,16 @@
         "license": "CA License: 02209935",
         "headshot": "images/headshot_morgan-wetmore.jpg",
         "bio": "Morgan Wetmore is an Associate with the LAAA Team specializing in multifamily investment sales across Pasadena and the San Gabriel Valley."
+      },
+      {
+        "name": "Glen Scher",
+        "title": "Senior Managing Director Investments",
+        "phone": "(818) 212-2808",
+        "tel": "8182122808",
+        "email": "Glen.Scher@marcusmillichap.com",
+        "license": "CA License: 01962976",
+        "headshot": "images/headshot_glen-scher.jpg",
+        "bio": "Glen Scher advises apartment owners and investors across Southern California with a focus on evidence-based pricing and transaction execution."
       }
     ],
     "grid": [
@@ -671,7 +671,7 @@
   ],
   "stats": {
     "live": true,
-    "generated": "2026-08-17T21:48:48+00:00",
+    "generated": "2026-08-17T21:53:10+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
