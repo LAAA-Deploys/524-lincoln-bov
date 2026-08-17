@@ -156,10 +156,10 @@
       "year_built": 2025,
       "parking": "On-site parking; verify configuration and count during inspection",
       "hero": "images/524-lincoln-hero.jpg",
-      "price": 3135000,
-      "price_per_unit": 313500,
-      "price_per_sf": 475.58,
-      "value_range": "$3,050,000 to $3,250,000",
+      "price": 3030000,
+      "price_per_unit": 303000,
+      "price_per_sf": 459.65,
+      "value_range": "$2,950,000 to $3,150,000",
       "scheduled_rent": [
         23020,
         23700
@@ -172,16 +172,16 @@
         0,
         0
       ],
-      "grm_current": 11.35,
-      "grm_market": 11.02,
-      "cap_current": 6.0,
-      "cap_market": 6.24,
-      "noi_current": 188189,
-      "noi_market": 195709,
+      "grm_current": 10.97,
+      "grm_market": 10.65,
+      "cap_current": 6.25,
+      "cap_market": 6.5,
+      "noi_current": 189481,
+      "noi_market": 197001,
       "tax_rate": 1.23,
-      "expense_total": 79764,
-      "expense_per_unit": 7976,
-      "expense_per_sf": 12.1,
+      "expense_total": 78472,
+      "expense_per_unit": 7847,
+      "expense_per_sf": 11.9,
       "unit_mix": [
         {
           "count": 4,
@@ -226,47 +226,47 @@
           275868
         ],
         "expenses": [
-          79764,
-          80159
+          78472,
+          78867
         ],
         "expense_ratio": [
-          29.8,
-          29.1
+          29.3,
+          28.6
         ],
         "noi": [
-          188189,
-          195709
+          189481,
+          197001
         ],
         "loan_payments": [
-          -150562,
-          -150562
+          -145519,
+          -145519
         ],
         "pretax_cf": [
-          37627,
-          45147
+          43962,
+          51482
         ],
         "pretax_cf_pct": [
-          3.43,
-          4.11
+          4.15,
+          4.85
         ],
         "principal_reduction": [
-          23878,
-          23878
+          23078,
+          23078
         ],
         "total_return": [
-          61505,
-          69025
+          67040,
+          74560
         ],
         "total_return_pct": [
-          5.61,
-          6.29
+          6.32,
+          7.03
         ]
       },
       "expense_lines": [
         [
           "Real Estate Taxes",
-          38561,
-          38561,
+          37269,
+          37269,
           1
         ],
         [
@@ -373,10 +373,10 @@
         ]
       },
       "financing": {
-        "loan_amount": 2037750,
+        "loan_amount": 1969500,
         "rate": 6.25,
         "amortization": 30,
-        "dcr": 1.25
+        "dcr": 1.3
       },
       "highlights": [
         "Ten units: eight fully renovated apartments plus two detached ADUs completed in 2025",
@@ -414,8 +414,8 @@
         "Comparable rents are current asking rents at nearby properties. They provide a market sensitivity and are not represented as achieved subject rents."
       ],
       "valuation_narrative": [
-        "The recommended list price is $3,135,000, within a supported range of $3.05M to $3.25M. On the ten units with the four vacant units at asking rents, the price reflects a 6.00% current cap rate and 11.35 GRM, improving to a 6.24% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
-        "At $313,500 per unit the price sits just above the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1950s and 1960s product. The premium is carried by the 2025 renovation, the two new-construction ADUs, and a 6.00% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings.",
+        "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.25% current cap rate and 10.97 GRM, improving to a 6.50% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
+        "At $303,000 per unit the price sits at the top of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1950s and 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.25% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings carry that positioning.",
         "The lease-up of the four vacant units is the primary execution item; at asking rents they represent $112,800 of the $276,240 annual scheduled gross income."
       ],
       "strategy": [
@@ -439,7 +439,7 @@
         },
         {
           "title": "Owner-operator",
-          "copy": "A hands-on investor who executes the four-unit lease-up and manages the asset toward its 6.24% market-rent yield."
+          "copy": "A hands-on investor who executes the four-unit lease-up and manages the asset toward its 6.50% market-rent yield."
         },
         {
           "title": "1031 exchange buyer",
@@ -654,7 +654,7 @@
   ],
   "stats": {
     "live": true,
-    "generated": "2026-08-17T19:08:05+00:00",
+    "generated": "2026-08-17T20:01:40+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
