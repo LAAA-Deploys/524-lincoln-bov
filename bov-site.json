@@ -156,10 +156,10 @@
       "year_built": 1925,
       "parking": "On-site parking; verify configuration and count during inspection",
       "hero": "images/524-lincoln-hero.jpg",
-      "price": 2850000,
-      "price_per_unit": 356250,
-      "price_per_sf": 528.56,
-      "value_range": "$2,600,000 to $3,100,000",
+      "price": 2472500,
+      "price_per_unit": 309063,
+      "price_per_sf": 458.55,
+      "value_range": "$2,400,000 to $2,550,000",
       "scheduled_rent": [
         18120,
         18800
@@ -172,16 +172,16 @@
         0,
         0
       ],
-      "grm_current": 13.11,
-      "grm_market": 12.63,
-      "cap_current": 4.82,
-      "cap_market": 5.09,
-      "noi_current": 137511,
-      "noi_market": 145030,
+      "grm_current": 11.37,
+      "grm_market": 10.96,
+      "cap_current": 5.75,
+      "cap_market": 6.05,
+      "noi_current": 142154,
+      "noi_market": 149673,
       "tax_rate": 1.23,
-      "expense_total": 73406,
-      "expense_per_unit": 9176,
-      "expense_per_sf": 13.61,
+      "expense_total": 68763,
+      "expense_per_unit": 8595,
+      "expense_per_sf": 12.75,
       "unit_mix": [
         {
           "count": 4,
@@ -217,47 +217,47 @@
           218832
         ],
         "expenses": [
-          73406,
-          73802
+          68763,
+          69159
         ],
         "expense_ratio": [
-          34.8,
-          33.7
+          32.6,
+          31.6
         ],
         "noi": [
-          137511,
-          145030
+          142154,
+          149673
         ],
         "loan_payments": [
-          -136874,
-          -136874
+          -118744,
+          -118744
         ],
         "pretax_cf": [
-          637,
-          8156
+          23410,
+          30929
         ],
         "pretax_cf_pct": [
-          0.06,
-          0.82
+          2.71,
+          3.57
         ],
         "principal_reduction": [
-          21708,
-          21708
+          18832,
+          18832
         ],
         "total_return": [
-          22345,
-          29864
+          42242,
+          49761
         ],
         "total_return_pct": [
-          2.24,
-          2.99
+          4.88,
+          5.75
         ]
       },
       "expense_lines": [
         [
           "Real Estate Taxes",
-          35055,
-          35055,
+          30412,
+          30412,
           1
         ],
         [
@@ -364,10 +364,10 @@
         ]
       },
       "financing": {
-        "loan_amount": 1852500,
+        "loan_amount": 1607125,
         "rate": 6.25,
         "amortization": 30,
-        "dcr": 1.0
+        "dcr": 1.2
       },
       "highlights": [
         "Eight apartment units built in 1925 on a 10,945 SF (0.25 acre) PSR3-zoned lot",
@@ -405,9 +405,9 @@
         "Comparable rents are current asking rents at nearby properties. They provide a market sensitivity and are not represented as achieved subject rents."
       ],
       "valuation_narrative": [
-        "The recommended list price is $2.85M, within a supported range of $2.6M to $3.1M. On the existing eight units with the two vacant units at asking rents, the price reflects a 4.82% current cap rate and 13.11 GRM, improving to 5.09% at underwritten market rents on turnover.",
-        "The pricing is anchored by the ADU expansion path. Adding two two-bedroom accessory dwelling units at $2,450 per month produces a 10-unit pro forma with $276,240 gross scheduled rent, approximately $191,700 net operating income, a 6.73% pro forma cap rate, a 10.32 GRM, and $285,000 per unit, in line with the $217,000 to $300,000 per unit range established by the comparable sales.",
-        "ADU figures are pro forma only and remain subject to City of Pasadena approvals, construction cost, and lease-up. Buyers underwriting the existing eight units alone should weight the comparable sales at $217,000 to $300,000 per unit."
+        "The recommended list price is $2,472,500, within a supported range of $2.4M to $2.55M. On the existing eight units with the two vacant units at asking rents, the price reflects a 5.75% current cap rate and 11.37 GRM, improving to a 6.05% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
+        "At approximately $309,000 per unit the price sits at the top of the $217,000 to $300,000 per unit comparable range, supported by the subject's half two-bedroom unit mix, the 5.75% day-one yield against comparable sales trading between 5.17% and 6.52%, and the additional land value in the 10,945 SF R3 lot.",
+        "The ADU expansion adds further support: two two-bedroom accessory dwelling units at $2,450 per month would take the basis to roughly $247,000 per unit on ten units with a pro forma cap rate near 7.9%. ADU figures are pro forma only and remain subject to City of Pasadena approvals, construction cost, and lease-up."
       ],
       "strategy": [
         {
@@ -633,7 +633,7 @@
           "cap_rate": 6.14,
           "image": null,
           "summary": "A twelve-unit 1962 property near the Playhouse District that closed at $2.85M.",
-          "relevance": "The largest transaction in the set, matching the subject's recommended list price dollar for dollar at a 6.14% cap rate.",
+          "relevance": "The largest transaction in the set, demonstrating depth of demand for Pasadena multifamily above $2.5M at a 6.14% cap rate.",
           "considerations": "Fifty percent more units than the subject; per-unit pricing reflects the larger unit count."
         }
       ],
@@ -644,7 +644,7 @@
   ],
   "stats": {
     "live": true,
-    "generated": "2026-08-17T17:57:39+00:00",
+    "generated": "2026-08-17T18:56:03+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
