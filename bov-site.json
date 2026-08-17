@@ -174,14 +174,14 @@
       ],
       "grm_current": 10.97,
       "grm_market": 10.65,
-      "cap_current": 6.25,
-      "cap_market": 6.5,
-      "noi_current": 189481,
-      "noi_market": 197001,
+      "cap_current": 6.02,
+      "cap_market": 6.26,
+      "noi_current": 182256,
+      "noi_market": 189776,
       "tax_rate": 1.23,
-      "expense_total": 78472,
-      "expense_per_unit": 7847,
-      "expense_per_sf": 11.9,
+      "expense_total": 85697,
+      "expense_per_unit": 8570,
+      "expense_per_sf": 13.0,
       "unit_mix": [
         {
           "count": 4,
@@ -226,40 +226,40 @@
           275868
         ],
         "expenses": [
-          78472,
-          78867
+          85697,
+          86092
         ],
         "expense_ratio": [
-          29.3,
-          28.6
+          32.0,
+          31.2
         ],
         "noi": [
-          189481,
-          197001
+          182256,
+          189776
         ],
         "loan_payments": [
           -145519,
           -145519
         ],
         "pretax_cf": [
-          43962,
-          51482
+          36738,
+          44257
         ],
         "pretax_cf_pct": [
-          4.15,
-          4.85
+          3.46,
+          4.17
         ],
         "principal_reduction": [
           23078,
           23078
         ],
         "total_return": [
-          67040,
-          74560
+          59816,
+          67335
         ],
         "total_return_pct": [
-          6.32,
-          7.03
+          5.64,
+          6.35
         ]
       },
       "expense_lines": [
@@ -289,8 +289,8 @@
         ],
         [
           "Trash Removal",
-          2400,
-          2400,
+          4116,
+          4116,
           3
         ],
         [
@@ -319,14 +319,14 @@
         ],
         [
           "Miscellaneous",
-          1481,
-          1481,
+          2990,
+          2990,
           5
         ],
         [
           "Replacement Reserves",
-          2000,
-          2000,
+          6000,
+          6000,
           6
         ],
         [
@@ -376,7 +376,7 @@
         "loan_amount": 1969500,
         "rate": 6.25,
         "amortization": 30,
-        "dcr": 1.3
+        "dcr": 1.25
       },
       "highlights": [
         "Ten units: eight fully renovated apartments plus two detached ADUs completed in 2025",
@@ -414,8 +414,8 @@
         "Comparable rents are current asking rents at nearby properties. They provide a market sensitivity and are not represented as achieved subject rents."
       ],
       "valuation_narrative": [
-        "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.25% current cap rate and 10.97 GRM, improving to a 6.50% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
-        "At $303,000 per unit the price sits at the top of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1950s and 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.25% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings carry that positioning.",
+        "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.02% current cap rate and 10.97 GRM, improving to a 6.26% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
+        "At $303,000 per unit the price sits at the top of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1950s and 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.02% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings carry that positioning.",
         "The lease-up of the four vacant units is the primary execution item; at asking rents they represent $112,800 of the $276,240 annual scheduled gross income."
       ],
       "strategy": [
@@ -439,7 +439,7 @@
         },
         {
           "title": "Owner-operator",
-          "copy": "A hands-on investor who executes the four-unit lease-up and manages the asset toward its 6.50% market-rent yield."
+          "copy": "A hands-on investor who executes the four-unit lease-up and manages the asset toward its 6.26% market-rent yield."
         },
         {
           "title": "1031 exchange buyer",
