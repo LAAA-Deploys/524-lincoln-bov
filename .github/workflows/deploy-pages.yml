@@ -1,0 +1,151 @@
+name: Deploy website
+
+# Copied into every deal repo by build_bov_site.py, along with the gate and the
+# audits it runs. The build overwrites them on every run, so a deal repo cannot
+# drift onto an old copy of the checks.
+#
+# Deployment is manual after Glen approves the reviewed site. The workflow runs
+# the full gate and runtime audits immediately before publishing, so approval
+# never bypasses verification and an ordinary push cannot publish by accident.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # The design lock, the framework ban, price discipline, section order,
+      # broken images, double-escaped entities, and whether the published
+      # figures came from a live pull. Every rule is an actual failure that
+      # reached a page; see the docstring in the script.
+      - name: BOV site gate
+        run: python .ci/check_bov_site.py .
+
+      # Deploy an explicit allowlist, never the repo. This workflow used to
+      # upload `path: .`, which served make_data.py, bov-site.json and the raw
+      # research dump at guessable public URLs. Fail-closed: a new build script
+      # or data dump is excluded unless someone deliberately adds it here.
+      - name: Stage the site
+        run: |
+          rm -rf _site && mkdir _site
+          fail=0
+          for f in index.html CNAME .nojekyll og.jpg; do
+            if [ -f "$f" ]; then cp "$f" _site/; else echo "FAIL: missing $f"; fail=1; fi
+          done
+          [ -f robots.txt ] && cp robots.txt _site/
+          # Copy only the generated page for each manifest-declared route.
+          # Source documents or scratch files beside it must never be published.
+          python - <<'PY'
+          import json
+          import re
+          import shutil
+          from html import unescape
+          from pathlib import Path
+
+          data = json.loads(Path("bov-site.json").read_text(encoding="utf-8"))
+          properties = data.get("properties", [])
+          if len(properties) > 1:
+              for prop in properties:
+                  slug = prop.get("slug", "")
+                  if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+                      raise SystemExit(f"FAIL: unsafe property route slug: {slug!r}")
+                  source = Path(slug) / "index.html"
+                  if not source.is_file():
+                      raise SystemExit(f"FAIL: missing manifest route page: {source}")
+                  destination = Path("_site") / slug
+                  destination.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(source, destination / "index.html")
+
+          # Derive the public image allowlist from the generated pages. This
+          # includes HTML attributes, inline hero styles, and lightbox data.
+          referenced_images = set()
+          image_patterns = (
+              re.compile(r"'(?:\.\./)*(images/[^']+)'"),
+              re.compile(r'"(?:\.\./)*(images/[^"]+)"'),
+          )
+          for page in Path("_site").rglob("*.html"):
+              markup = page.read_text(encoding="utf-8")
+              for pattern in image_patterns:
+                  referenced_images.update(unescape(path) for path in pattern.findall(markup))
+          if not referenced_images:
+              raise SystemExit("FAIL: generated pages reference no image assets")
+          images_root = Path("images").resolve()
+          allowed_suffixes = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}
+          for relative in sorted(referenced_images):
+              source = Path(relative)
+              try:
+                  source.resolve().relative_to(images_root)
+              except ValueError:
+                  raise SystemExit(f"FAIL: referenced image escapes images/: {source}")
+              if source.suffix.lower() not in allowed_suffixes:
+                  raise SystemExit(f"FAIL: referenced asset is not an approved image type: {source}")
+              if not source.is_file():
+                  raise SystemExit(f"FAIL: missing referenced image: {source}")
+              destination = Path("_site") / relative
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(source, destination)
+          PY
+          if find _site -type f \( -name '*.py' -o -name '*.mjs' -o -name '*.json' \
+                                   -o -name '*.md' -o -name '*.yml' \) | grep -q .; then
+            echo "FAIL: build source or data reached the deploy artifact:"
+            find _site -type f \( -name '*.py' -o -name '*.mjs' -o -name '*.json' \
+                                  -o -name '*.md' -o -name '*.yml' \)
+            fail=1
+          fi
+          echo "staged $(find _site -type f | wc -l) files"
+          exit $fail
+
+      # Runtime audits. These catch what a string check cannot see: a map
+      # cropped by its frame, a table wrapping at one breakpoint, a nav link
+      # unreachable at 390px, a hero that 404s. All three run against _site, so
+      # they test exactly what deploys, and all three run even if an earlier one
+      # fails so a push surfaces every problem at once rather than one per push.
+      - name: Runtime audits
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm i -D playwright@latest >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+          (cd _site && python3 -m http.server 8901 >/dev/null 2>&1 &)
+          for i in $(seq 1 20); do curl -sf http://localhost:8901/index.html >/dev/null && break; sleep 1; done
+          rc=0
+          AUDIT_ROOT=_site node .ci/audits/audit_tables.mjs http://localhost:8901 || rc=1
+          AUDIT_ROOT=_site node .ci/audits/audit_media.mjs  http://localhost:8901 || rc=1
+          AUDIT_ROOT=_site node .ci/audits/audit_nav.mjs    http://localhost:8901 || rc=1
+          rm -f package.json package-lock.json; rm -rf node_modules
+          exit $rc
+
+      - uses: actions/upload-pages-artifact@v5
+        if: github.event_name == 'workflow_dispatch'
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v6
+      - id: deployment
+        uses: actions/deploy-pages@v5

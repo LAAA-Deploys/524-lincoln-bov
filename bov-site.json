@@ -1,0 +1,682 @@
+{
+  "schema_version": 2,
+  "document_type": "bov",
+  "site_mode": "single",
+  "meta": {
+    "domain": "524-lincoln.laaa.com",
+    "client": "Pasadena Lincoln LLC",
+    "title": "524 Lincoln Ave",
+    "subtitle": "8-Unit Multifamily Investment | Pasadena",
+    "month_year": "August 2026",
+    "hero": "images/524-lincoln-hero.jpg",
+    "hero_tall": "images/524-lincoln-hero-tall.jpg"
+  },
+  "team": {
+    "leads": [
+      {
+        "name": "Filip Niculete",
+        "title": "Senior Managing Director Investments",
+        "phone": "(818) 212-2748",
+        "tel": "8182122748",
+        "email": "Filip.Niculete@marcusmillichap.com",
+        "license": "CA License: 01905352",
+        "headshot": "images/headshot_filip-niculete.jpg",
+        "bio": "Filip Niculete advises multifamily owners and investors throughout Southern California with an emphasis on disciplined marketing and execution."
+      },
+      {
+        "name": "Glen Scher",
+        "title": "Senior Managing Director Investments",
+        "phone": "(818) 212-2808",
+        "tel": "8182122808",
+        "email": "Glen.Scher@marcusmillichap.com",
+        "license": "CA License: 01962976",
+        "headshot": "images/headshot_glen-scher.jpg",
+        "bio": "Glen Scher advises apartment owners and investors across Southern California with a focus on evidence-based pricing and transaction execution."
+      },
+      {
+        "name": "Morgan Wetmore",
+        "title": "Associate",
+        "phone": "(818) 212-2724",
+        "tel": "8182122724",
+        "email": "Morgan.Wetmore@marcusmillichap.com",
+        "license": "CA License: 02209935",
+        "headshot": "images/headshot_morgan-wetmore.jpg",
+        "bio": "Morgan Wetmore is an Associate with the LAAA Team specializing in multifamily investment sales across Pasadena and the San Gabriel Valley."
+      }
+    ],
+    "grid": [
+      {
+        "name": "Aida Memary",
+        "title": "Associate, Investments",
+        "headshot": "images/roster_aida-memary-scher.jpg"
+      },
+      {
+        "name": "Logan Ward",
+        "title": "Associate, Investments",
+        "headshot": "images/roster_logan-ward.jpg"
+      },
+      {
+        "name": "Luka Leader",
+        "title": "Associate, Investments",
+        "headshot": "images/roster_luka-leader.jpg"
+      },
+      {
+        "name": "Alexandro Tapia",
+        "title": "Associate, Investments",
+        "headshot": "images/roster_alexandro-tapia.jpg"
+      },
+      {
+        "name": "Blake Lewitt",
+        "title": "Associate, Investments",
+        "headshot": "images/roster_blake-lewitt.jpg"
+      },
+      {
+        "name": "Mike Palade",
+        "title": "Agent Assistant",
+        "headshot": "images/roster_mike-palade.jpg"
+      },
+      {
+        "name": "Tony H. Dang",
+        "title": "Business Operations Manager",
+        "headshot": "images/roster_tony-dang.jpg"
+      },
+      {
+        "name": "Tirajeh Vossoughi-Horton",
+        "title": "Investment Brokerage Intern",
+        "headshot": "images/roster_tirajeh-vossoughi-horton.jpg"
+      }
+    ]
+  },
+  "track_record": {
+    "metrics": [
+      [
+        "{closed}",
+        "Closed Transactions"
+      ],
+      [
+        "{volume}",
+        "Total Sales Volume"
+      ],
+      [
+        "{apt_units}",
+        "Apartment Units Sold"
+      ]
+    ],
+    "narrative": [
+      "The LAAA Team has closed {closed} transactions totaling {volume} across {geo}, including {apt_closed} apartment sales covering {apt_units} units."
+    ],
+    "achievements": [],
+    "press": []
+  },
+  "marketing": {
+    "metrics": [
+      [
+        "{subscribers}",
+        "Active Email Subscribers"
+      ],
+      [
+        "10",
+        "Listing Platforms"
+      ]
+    ],
+    "channels": [
+      [
+        "Listing Platforms",
+        "Advertised on The MLS, CoStar/LoopNet, Crexi, Brevitas, Zillow, Redfin, ApartmentBuildings.com, Duxre, MarcusMillichap.com, and www.laaa.com."
+      ],
+      [
+        "Targeted Buyer Outreach",
+        "Direct calls to Pasadena and San Gabriel Valley apartment owners, 1031 exchange buyers, and ADU-oriented value-add investors active in the submarket."
+      ],
+      [
+        "Email Campaigns",
+        "Source-stamped campaigns to the LAAA subscriber base with property-level engagement reporting."
+      ],
+      [
+        "Marcus & Millichap Platform",
+        "National investor exposure through the Marcus & Millichap brokerage network, including MNet inventory distribution."
+      ]
+    ],
+    "narrative": [
+      "The campaign will combine direct buyer outreach, the Marcus & Millichap platform, and dedicated digital presentation."
+    ]
+  },
+  "properties": [
+    {
+      "slug": "524-lincoln",
+      "short_name": "524 Lincoln Ave",
+      "address": "524 Lincoln Ave",
+      "city": "Pasadena, CA 91103",
+      "submarket": "Northwest Pasadena",
+      "apn": "5726-015-017",
+      "units": 8,
+      "building_sf": 5392,
+      "lot_sf": 10945,
+      "lot_acres": 0.251,
+      "year_built": 1925,
+      "parking": "On-site parking; verify configuration and count during inspection",
+      "hero": "images/524-lincoln-hero.jpg",
+      "price": 2850000,
+      "price_per_unit": 356250,
+      "price_per_sf": 528.56,
+      "value_range": "$2,600,000 to $3,100,000",
+      "scheduled_rent": [
+        18120,
+        18800
+      ],
+      "monthly_sgi": [
+        18120,
+        18800
+      ],
+      "additional_income": [
+        0,
+        0
+      ],
+      "grm_current": 13.11,
+      "grm_market": 12.63,
+      "cap_current": 4.82,
+      "cap_market": 5.09,
+      "noi_current": 137511,
+      "noi_market": 145030,
+      "tax_rate": 1.23,
+      "expense_total": 73406,
+      "expense_per_unit": 9176,
+      "expense_per_sf": 13.61,
+      "unit_mix": [
+        {
+          "count": 4,
+          "type": "1 Bed / 1 Bath",
+          "sf": 650,
+          "rent_current": 2185,
+          "monthly_current": 8740,
+          "rent_market": 2250,
+          "monthly_market": 9000
+        },
+        {
+          "count": 4,
+          "type": "2 Bed / 1 Bath",
+          "sf": 698,
+          "rent_current": 2345,
+          "monthly_current": 9380,
+          "rent_market": 2450,
+          "monthly_market": 9800
+        }
+      ],
+      "operating": {
+        "sgi": [
+          217440,
+          225600
+        ],
+        "vacancy": [
+          6523,
+          6768
+        ],
+        "vacancy_pct": 3.0,
+        "goi": [
+          210917,
+          218832
+        ],
+        "expenses": [
+          73406,
+          73802
+        ],
+        "expense_ratio": [
+          34.8,
+          33.7
+        ],
+        "noi": [
+          137511,
+          145030
+        ],
+        "loan_payments": [
+          -136874,
+          -136874
+        ],
+        "pretax_cf": [
+          637,
+          8156
+        ],
+        "pretax_cf_pct": [
+          0.06,
+          0.82
+        ],
+        "principal_reduction": [
+          21708,
+          21708
+        ],
+        "total_return": [
+          22345,
+          29864
+        ],
+        "total_return_pct": [
+          2.24,
+          2.99
+        ]
+      },
+      "expense_lines": [
+        [
+          "Real Estate Taxes",
+          35055,
+          35055,
+          1
+        ],
+        [
+          "Insurance",
+          8995,
+          8995,
+          2
+        ],
+        [
+          "Utilities - Electric",
+          1043,
+          1043,
+          3
+        ],
+        [
+          "Utilities - Water & Sewer",
+          1272,
+          1272,
+          3
+        ],
+        [
+          "Trash Removal",
+          2400,
+          2400,
+          3
+        ],
+        [
+          "Repairs & Maintenance",
+          3497,
+          3497,
+          4
+        ],
+        [
+          "Landscaping",
+          2331,
+          2331,
+          4
+        ],
+        [
+          "Pest Control",
+          1286,
+          1286,
+          4
+        ],
+        [
+          "General & Administrative",
+          1500,
+          1500,
+          5
+        ],
+        [
+          "Miscellaneous",
+          1481,
+          1481,
+          5
+        ],
+        [
+          "Replacement Reserves",
+          2000,
+          2000,
+          6
+        ],
+        [
+          "Operating Reserves",
+          2000,
+          2000,
+          6
+        ],
+        [
+          "Management Fee",
+          10546,
+          10942,
+          7
+        ]
+      ],
+      "expense_notes": {
+        "1": [
+          "Real Estate Taxes",
+          "Underwritten at reassessment on the recommended list price at the 1.23% effective rate for tax rate area 7-695. Current taxes are $19,141 (2025) on a $1,510,791 assessed value."
+        ],
+        "2": [
+          "Insurance",
+          "Pro forma allowance per the underwriting model; obtain current quotes during diligence."
+        ],
+        "3": [
+          "Utilities and Trash",
+          "Annualized from the July 2026 fiscal year-to-date operating statement (Focus Property Services). Trash reflects the trailing figure and may increase at full occupancy."
+        ],
+        "4": [
+          "Repairs, Landscaping, Pest Control",
+          "Normalized allowances informed by trailing operations; verify the trailing 12-month repair history during diligence."
+        ],
+        "5": [
+          "General, Administrative and Miscellaneous",
+          "Underwriting allowances per the pricing model."
+        ],
+        "6": [
+          "Reserves",
+          "Replacement and operating reserve allowances."
+        ],
+        "7": [
+          "Management Fee",
+          "Underwritten at 5.0% of effective gross income. The property is currently managed by a third-party manager, Focus Property Services Inc."
+        ]
+      },
+      "financing": {
+        "loan_amount": 1852500,
+        "rate": 6.25,
+        "amortization": 30,
+        "dcr": 1.0
+      },
+      "highlights": [
+        "Eight apartment units built in 1925 on a 10,945 SF (0.25 acre) PSR3-zoned lot",
+        "Balanced mix of four one-bedroom and four two-bedroom floor plans",
+        "Two vacant units ready for immediate lease-up at market asking rents",
+        "Occupied rents average $2,270 per month with upside on turnover",
+        "Potential to add two accessory dwelling units, subject to City of Pasadena approval",
+        "Professionally managed asset held by the same ownership since 2020"
+      ],
+      "overview": [
+        "524 Lincoln Ave is an eight-unit apartment property in Northwest Pasadena, built in 1925 with 5,392 SF of building area on a 10,945 SF PSR3-zoned lot. The unit mix is evenly split between one-bedroom and two-bedroom floor plans across two stories.",
+        "The property is 75% occupied per the July 31, 2026 rent roll, with six occupied units producing $13,620 per month and two vacant one-bedroom units ready to lease. Scheduled income in this analysis includes the vacant units at their $2,250 asking rents.",
+        "Ownership acquired the property in December 2020 and operates it with third-party professional management. The 10,945 SF R3 lot also presents the opportunity to add accessory dwelling units, subject to City of Pasadena approval."
+      ],
+      "location_title": "Northwest Pasadena, minutes from Old Pasadena and the Rose Bowl",
+      "location_narrative": [
+        "The property sits on Lincoln Avenue in Northwest Pasadena, approximately one mile from the Old Pasadena retail and dining district and roughly the same distance from the Rose Bowl and Brookside Park recreation corridor.",
+        "Residents reach the 210 freeway in minutes, with Metro L Line service at Memorial Park connecting to downtown Los Angeles. Major employers within a short drive include Huntington Health, Caltech, JPL, and the Playhouse District office core.",
+        "Northwest Pasadena draws renters priced out of central Pasadena while keeping walkable access to the same amenity base, supporting durable occupancy for well-maintained smaller properties."
+      ],
+      "physical_narrative": [
+        "The building is a two-story wood-frame structure totaling 5,392 SF, with four one-bedroom and four two-bedroom units and on-site parking. County records show wood construction and a 0.49 building-to-lot ratio.",
+        "One-bedroom units are approximately 650 SF per the underwriting model. Two-bedroom square footage is estimated at approximately 698 SF, derived from the gross building area less the one-bedroom allocation; verify unit-level square footage during inspection.",
+        "Physical condition, deferred maintenance, and building systems should be confirmed through inspection. Photography shown dates to 2020."
+      ],
+      "market_narrative": [
+        "Pasadena multifamily continues to trade actively in the 5 to 8 unit range, with six closed sales in the surrounding blocks since August 2025 spanning $217,000 to $300,000 per unit and 5.17% to 6.52% cap rates on in-place income.",
+        "The analysis considers current income with the vacant units at asking rents, supported market rents from nearby availabilities, and the recent transaction evidence summarized in the comparable sections."
+      ],
+      "positioning_narrative": [
+        "The property fits private investors seeking Pasadena's rental fundamentals with three distinct levers: immediate lease-up of two vacant units, mark-to-market on turnover, and ADU additions on the oversized R3 lot."
+      ],
+      "rent_narrative": [
+        "Current asking rents at nearby properties range from $2,250 to $2,300 for one-bedroom units and $2,300 to $2,495 for two-bedroom units, supporting the underwritten market rents of $2,250 and $2,450. The $2,100 asking rent at 380 Parke St reflects a substantially smaller 480 SF unit.",
+        "Comparable rents are current asking rents at nearby properties. They provide a market sensitivity and are not represented as achieved subject rents."
+      ],
+      "valuation_narrative": [
+        "The recommended list price is $2.85M, within a supported range of $2.6M to $3.1M. On the existing eight units with the two vacant units at asking rents, the price reflects a 4.82% current cap rate and 13.11 GRM, improving to 5.09% at underwritten market rents on turnover.",
+        "The pricing is anchored by the ADU expansion path. Adding two two-bedroom accessory dwelling units at $2,450 per month produces a 10-unit pro forma with $276,240 gross scheduled rent, approximately $191,700 net operating income, a 6.73% pro forma cap rate, a 10.32 GRM, and $285,000 per unit, in line with the $217,000 to $300,000 per unit range established by the comparable sales.",
+        "ADU figures are pro forma only and remain subject to City of Pasadena approvals, construction cost, and lease-up. Buyers underwriting the existing eight units alone should weight the comparable sales at $217,000 to $300,000 per unit."
+      ],
+      "strategy": [
+        {
+          "title": "Lease the two vacant units",
+          "copy": "Units 101 and 102 are vacant and rent-ready at $2,250 asking, adding $54,000 of annual scheduled income the day they lease."
+        },
+        {
+          "title": "Add two ADUs on the R3 lot",
+          "copy": "The 10,945 SF lot supports two detached accessory dwelling units under California ADU law, underwritten at $2,450 per month each, subject to City of Pasadena approval and construction budget."
+        },
+        {
+          "title": "Mark rents to market on turnover",
+          "copy": "Occupied rents average $2,270 against $2,250 to $2,450 underwritten market levels. State law permits a reset to market rent when a unit turns over."
+        }
+      ],
+      "buyer_profiles": [
+        {
+          "title": "Private value-add investor",
+          "copy": "An owner-operator who leases the vacant units, executes light unit turns, and grows income toward market."
+        },
+        {
+          "title": "ADU-oriented developer",
+          "copy": "An investor who prices the deal on the 10-unit pro forma and builds the two ADUs to reach a stabilized mid-6% yield."
+        },
+        {
+          "title": "1031 exchange buyer",
+          "copy": "An exchange buyer seeking a manageable Pasadena asset with day-one income and identifiable upside."
+        }
+      ],
+      "disclosures": [
+        "Rent roll and operating figures are transcribed from the July 31, 2026 rent roll and July 2026 cash flow statement prepared by Focus Property Services Inc.",
+        "Units 101 and 102 are vacant; scheduled income includes both units at their $2,250 per month asking rents.",
+        "The property is subject to the City of Pasadena rent stabilization ordinance (Measure H). Annual increases on occupied units are limited by the ordinance; state law permits re-rent at market on vacancy.",
+        "The ADU scenario is a conceptual pro forma. No ADU plans, permits, or approvals are represented, and figures exclude construction cost and downtime.",
+        "Property photography dates to 2020; current condition should be verified through inspection.",
+        "Comparable sale data is drawn from public records and industry databases and should be independently verified. The 1757 E Villa St sale recorded at $1,457,000 in county transfer records; the table reflects the reported price of $1,500,000.",
+        "This analysis is a broker opinion of value, not an appraisal. All figures should be independently verified during due diligence."
+      ],
+      "gallery": [],
+      "maps": {
+        "subject": "images/maps-524-lincoln-subject.png",
+        "sale": "images/maps-524-lincoln-sale-comps.png",
+        "rent": "images/maps-524-lincoln-rent-comps.png",
+        "active": null
+      },
+      "rent_comps": [
+        {
+          "address": "231 E Villa St, Pasadena",
+          "unit_type": "1 Bed / 1 Bath",
+          "rent": 2250,
+          "square_feet": 671,
+          "distance": 0.45,
+          "image": null
+        },
+        {
+          "address": "275 N Oakland Ave, Pasadena",
+          "unit_type": "1 Bed / 1 Bath",
+          "rent": 2291,
+          "square_feet": 727,
+          "distance": 0.79,
+          "image": null
+        },
+        {
+          "address": "456 E Orange Grove Blvd, Pasadena",
+          "unit_type": "1 Bed / 1 Bath",
+          "rent": 2300,
+          "square_feet": 570,
+          "distance": 0.85,
+          "image": null
+        },
+        {
+          "address": "380 Parke St, Pasadena",
+          "unit_type": "1 Bed / 1 Bath",
+          "rent": 2100,
+          "square_feet": 480,
+          "distance": 0.64,
+          "image": null
+        },
+        {
+          "address": "820 N Raymond Ave, Pasadena",
+          "unit_type": "2 Bed / 1 Bath",
+          "rent": 2495,
+          "square_feet": 880,
+          "distance": 0.48,
+          "image": null
+        },
+        {
+          "address": "869 Lincoln Ave, Pasadena",
+          "unit_type": "2 Bed / 1 Bath",
+          "rent": 2495,
+          "square_feet": 900,
+          "distance": 0.4,
+          "image": null
+        },
+        {
+          "address": "570 N Los Robles Ave, Pasadena",
+          "unit_type": "2 Bed / 1 Bath",
+          "rent": 2495,
+          "square_feet": 856,
+          "distance": 0.71,
+          "image": null
+        },
+        {
+          "address": "853 N Raymond Ave, Pasadena",
+          "unit_type": "2 Bed / 1 Bath",
+          "rent": 2300,
+          "square_feet": 975,
+          "distance": 0.48,
+          "image": null
+        },
+        {
+          "address": "303 N Oakland Ave, Pasadena",
+          "unit_type": "2 Bed / 1 Bath",
+          "rent": 2363,
+          "square_feet": 827,
+          "distance": 0.78,
+          "image": null
+        }
+      ],
+      "sale_comps": [
+        {
+          "address": "826 N Summit Ave, Pasadena",
+          "status": "Closed",
+          "price": 1085000,
+          "units": 5,
+          "year_built": 1956,
+          "building_sf": 3658,
+          "lot_sf": 12012,
+          "date": "April 28, 2026",
+          "price_per_unit": 217000,
+          "price_per_sf": 297,
+          "grm": 11.24,
+          "cap_rate": 6.04,
+          "image": null,
+          "summary": "A five-unit 1950s property eight blocks north of the subject that closed at $1,085,000.",
+          "relevance": "Sets the entry point of the range at $217,000 per unit and a 6.04% cap rate on in-place income.",
+          "considerations": "Smaller building with a lower rent basis than the subject's two-bedroom-heavy mix."
+        },
+        {
+          "address": "965 N Summit Ave, Pasadena",
+          "status": "Closed",
+          "price": 1512000,
+          "units": 6,
+          "year_built": 1958,
+          "building_sf": 4275,
+          "lot_sf": 12004,
+          "date": "December 31, 2025",
+          "price_per_unit": 252000,
+          "price_per_sf": 354,
+          "grm": 12.82,
+          "cap_rate": 5.17,
+          "image": null,
+          "summary": "A six-unit 1958 property in the same northwest quadrant that closed at $1,512,000.",
+          "relevance": "Demonstrates buyers paying $354 per SF and a 12.82 GRM for below-market in-place rents.",
+          "considerations": "The lowest cap rate in the set, reflecting rental upside priced into the deal."
+        },
+        {
+          "address": "1757 E Villa St, Pasadena",
+          "status": "Closed",
+          "price": 1500000,
+          "units": 6,
+          "year_built": 1959,
+          "building_sf": 3936,
+          "lot_sf": 9004,
+          "date": "July 10, 2026",
+          "price_per_unit": 250000,
+          "price_per_sf": 381,
+          "grm": null,
+          "cap_rate": null,
+          "image": null,
+          "summary": "The most recent closing in the set, a six-unit property in east Pasadena at $1,500,000.",
+          "relevance": "The freshest evidence of per-unit pricing at $250,000 and the highest per-SF print in the set at $381.",
+          "considerations": "Income terms were not disclosed; east Pasadena location commands a modest premium."
+        },
+        {
+          "address": "696 Earlham St, Pasadena",
+          "status": "Closed",
+          "price": 1800000,
+          "units": 6,
+          "year_built": 1965,
+          "building_sf": 5640,
+          "lot_sf": 8401,
+          "date": "November 6, 2025",
+          "price_per_unit": 300000,
+          "price_per_sf": 319,
+          "grm": 12.48,
+          "cap_rate": 5.45,
+          "image": null,
+          "summary": "A six-unit 1965 building of larger two-bedroom units near Pasadena City College that closed at $1.8M.",
+          "relevance": "Tops the per-unit range at $300,000, showing what larger two-bedroom floor plans command.",
+          "considerations": "Bigger average unit size than the subject; central location east of Lake Ave."
+        },
+        {
+          "address": "679 Earlham St, Pasadena",
+          "status": "Closed",
+          "price": 2260000,
+          "units": 8,
+          "year_built": 1965,
+          "building_sf": 6291,
+          "lot_sf": 9778,
+          "date": "August 27, 2025",
+          "price_per_unit": 282500,
+          "price_per_sf": 359,
+          "grm": 10.91,
+          "cap_rate": 6.52,
+          "image": null,
+          "summary": "The only eight-unit sale in the set, directly across the street from 696 Earlham, closed at $2.26M.",
+          "relevance": "The closest match to the subject's unit count, at $282,500 per unit and a 6.52% cap rate.",
+          "considerations": "1965 construction with larger building area; sold with stronger in-place income than the subject."
+        },
+        {
+          "address": "423 N Garfield Ave, Pasadena",
+          "status": "Closed",
+          "price": 2850000,
+          "units": 12,
+          "year_built": 1962,
+          "building_sf": 9272,
+          "lot_sf": 11875,
+          "date": "May 8, 2026",
+          "price_per_unit": 237500,
+          "price_per_sf": 307,
+          "grm": 11.24,
+          "cap_rate": 6.14,
+          "image": null,
+          "summary": "A twelve-unit 1962 property near the Playhouse District that closed at $2.85M.",
+          "relevance": "The largest transaction in the set, matching the subject's recommended list price dollar for dollar at a 6.14% cap rate.",
+          "considerations": "Fifty percent more units than the subject; per-unit pricing reflects the larger unit count."
+        }
+      ],
+      "active_comps": [],
+      "map_points": [],
+      "track_record": {}
+    }
+  ],
+  "stats": {
+    "live": true,
+    "generated": "2026-08-17T17:57:39+00:00",
+    "geography": {
+      "states": 21,
+      "has_dc": true,
+      "label": "21 states and Washington, D.C.",
+      "outside_ca": 54,
+      "outside_ca_volume": 129156383
+    },
+    "sources": {
+      "track_record": "https://www.laaa.com/track-record",
+      "marketing": "https://www.laaa.com/; approved public reach claims"
+    },
+    "marketing": {
+      "source_mode": "public",
+      "active_email_subscribers": 23500,
+      "owner_investor_contacts": 36000,
+      "owners_buildings": 60000,
+      "buyer_calls": 100
+    },
+    "portfolio_track_record": {
+      "all": {
+        "count": 492,
+        "volume": 1548928899.5,
+        "units": 4684
+      },
+      "asset_class": {
+        "count": 340,
+        "volume": 1156335729.5,
+        "units": 4668
+      },
+      "asset_class_label": "Apartments",
+      "local": null,
+      "local_basis": null
+    }
+  }
+}
