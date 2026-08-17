@@ -153,7 +153,7 @@
       "building_sf": 6592,
       "lot_sf": 10945,
       "lot_acres": 0.251,
-      "year_built": 2025,
+      "year_built": 1925,
       "parking": "On-site parking; verify configuration and count during inspection",
       "hero": "images/524-lincoln-hero.jpg",
       "price": 3030000,
@@ -449,7 +449,7 @@
       "disclosures": [
         "Rent roll and operating figures for the original eight units are transcribed from the July 31, 2026 rent roll and July 2026 cash flow statement prepared by Focus Property Services Inc. The two ADUs do not yet appear on the property management rent roll.",
         "Units 101 and 102 and both ADUs are vacant; scheduled income includes all four at asking rents of $2,250 (one-bedroom) and $2,450 (ADU).",
-        "The property was originally constructed in 1925; the Year Built shown reflects the 2025 full renovation and ADU completion per ownership. Renovation scope, ADU permits, certificates of occupancy, and ADU square footage (600 SF each per ownership) should be independently verified.",
+        "The property was originally constructed in 1925 and was fully renovated in 2025, when the two ADUs were completed, per ownership. Renovation scope, ADU permits, certificates of occupancy, and ADU square footage (600 SF each per ownership) should be independently verified.",
         "Total building area of approximately 6,592 SF includes the ADU square footage; the original building is 5,392 SF per county records.",
         "The property is subject to the City of Pasadena rent stabilization ordinance (Measure H). Annual increases on occupied units are limited by the ordinance; state law permits re-rent at market on vacancy. New-construction ADUs may be exempt from local rent caps under state law; verify applicability.",
         "The cover photograph dates to 2020 and predates the 2025 renovation; gallery photography was taken in August 2026.",
@@ -671,7 +671,7 @@
   ],
   "stats": {
     "live": true,
-    "generated": "2026-08-17T20:11:08+00:00",
+    "generated": "2026-08-17T21:48:48+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
