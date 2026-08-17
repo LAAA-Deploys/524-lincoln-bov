@@ -400,7 +400,7 @@
       "physical_narrative": [
         "The original building is a two-story wood-frame structure totaling 5,392 SF with four one-bedroom and four two-bedroom units, fully renovated in 2025 per ownership. The two detached ADUs are new 2025 construction of 600 SF each; total building area of approximately 6,592 SF includes the ADU square footage.",
         "One-bedroom units are approximately 650 SF per the underwriting model. Two-bedroom square footage in the original building is estimated at approximately 698 SF, derived from the gross building area less the one-bedroom allocation. Unit-level square footage, renovation scope, and ADU permits and certificates of occupancy should be verified during inspection.",
-        "Photography shown dates to 2020 and predates the 2025 renovation; updated photography is recommended for the marketing campaign."
+        "Exterior photography from August 2026 is shown in the photo section, including the completed rear ADU building. The cover image dates to 2020; interior and updated cover photography are recommended for the marketing campaign."
       ],
       "market_narrative": [
         "Pasadena multifamily continues to trade actively in the 5 to 8 unit range, with six closed sales in the surrounding blocks since August 2025 spanning $217,000 to $300,000 per unit and 5.17% to 6.52% cap rates on in-place income.",
@@ -452,11 +452,28 @@
         "The property was originally constructed in 1925; the Year Built shown reflects the 2025 full renovation and ADU completion per ownership. Renovation scope, ADU permits, certificates of occupancy, and ADU square footage (600 SF each per ownership) should be independently verified.",
         "Total building area of approximately 6,592 SF includes the ADU square footage; the original building is 5,392 SF per county records.",
         "The property is subject to the City of Pasadena rent stabilization ordinance (Measure H). Annual increases on occupied units are limited by the ordinance; state law permits re-rent at market on vacancy. New-construction ADUs may be exempt from local rent caps under state law; verify applicability.",
-        "Property photography dates to 2020 and predates the 2025 renovation.",
+        "The cover photograph dates to 2020 and predates the 2025 renovation; gallery photography was taken in August 2026.",
         "Comparable sale data is drawn from public records and industry databases and should be independently verified. The 1757 E Villa St sale recorded at $1,457,000 in county transfer records; the table reflects the reported price of $1,500,000.",
         "This analysis is a broker opinion of value, not an appraisal. All figures should be independently verified during due diligence."
       ],
-      "gallery": [],
+      "gallery": [
+        {
+          "src": "images/524-lincoln-photo-01.jpg",
+          "alt": "Front elevation of 524 Lincoln Ave from Lincoln Avenue, August 2026"
+        },
+        {
+          "src": "images/524-lincoln-photo-02.jpg",
+          "alt": "Driveway along the main building leading to the rear ADUs"
+        },
+        {
+          "src": "images/524-lincoln-photo-03.jpg",
+          "alt": "New accessory dwelling units at the rear courtyard, completed 2025"
+        },
+        {
+          "src": "images/524-lincoln-photo-04.jpg",
+          "alt": "Rear ADU building with new windows, doors, and mini-split HVAC"
+        }
+      ],
       "maps": {
         "subject": "images/maps-524-lincoln-subject.png",
         "sale": "images/maps-524-lincoln-sale-comps.png",
@@ -654,7 +671,7 @@
   ],
   "stats": {
     "live": true,
-    "generated": "2026-08-17T20:01:40+00:00",
+    "generated": "2026-08-17T20:11:08+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
