@@ -222,43 +222,23 @@
       "renovated_year": 2025,
       "parking": "On-site parking; verify configuration and count during inspection",
       "hero": "images/zillow-f1e91b3a.jpg",
-      "price": 3030000,
-      "price_per_unit": 303000,
-      "price_per_sf": 459.65,
-      "value_range": "$2,950,000 to $3,150,000",
+      "price": 2840000,
+      "price_per_unit": 284000,
+      "price_per_sf": 430.83,
+      "value_range": "$2,750,000 to $2,950,000",
       "opinion_of_value": [
         {
           "label": "Suggested list price",
-          "price": 3030000,
-          "price_per_unit": 303000.0,
-          "price_per_sf": 459.6480582524272,
-          "grm_current": 10.968722849695917,
-          "grm_market": 10.654008438818565,
-          "cap_current": 6.015049504950495,
-          "cap_market": 6.263234323432343
+          "price": 2840000,
+          "price_per_unit": 284000.0,
+          "price_per_sf": 430.8252427184466,
+          "grm_current": 10.280915146249638,
+          "grm_market": 9.985935302390999,
+          "cap_current": 6.499753521126761,
+          "cap_market": 6.764542253521126
         },
         {
           "label": "Range top",
-          "price": 3150000,
-          "price_per_unit": 315000.0,
-          "price_per_sf": 477.8519417475728,
-          "grm_current": 11.403127715030408,
-          "grm_market": 11.075949367088608,
-          "cap_current": 5.73904761904762,
-          "cap_market": 5.977777777777778
-        },
-        {
-          "label": "Midpoint",
-          "price": 3050000.0,
-          "price_per_unit": 305000.0,
-          "price_per_sf": 462.68203883495147,
-          "grm_current": 11.041123660584999,
-          "grm_market": 10.724331926863572,
-          "cap_current": 5.967540983606558,
-          "cap_market": 6.214098360655738
-        },
-        {
-          "label": "Range bottom",
           "price": 2950000,
           "price_per_unit": 295000.0,
           "price_per_sf": 447.5121359223301,
@@ -266,6 +246,26 @@
           "grm_market": 10.372714486638538,
           "cap_current": 6.211525423728814,
           "cap_market": 6.4664406779661014
+        },
+        {
+          "label": "Midpoint",
+          "price": 2850000.0,
+          "price_per_unit": 285000.0,
+          "price_per_sf": 432.34223300970876,
+          "grm_current": 10.31711555169418,
+          "grm_market": 10.021097046413502,
+          "cap_current": 6.472631578947369,
+          "cap_market": 6.736491228070175
+        },
+        {
+          "label": "Range bottom",
+          "price": 2750000,
+          "price_per_unit": 275000.0,
+          "price_per_sf": 417.17233009708735,
+          "grm_current": 9.955111497248769,
+          "grm_market": 9.669479606188467,
+          "cap_current": 6.752727272727273,
+          "cap_market": 7.026181818181818
         }
       ],
       "scheduled_rent": [
@@ -280,23 +280,23 @@
         0.0,
         0.0
       ],
-      "grm_current": 10.968722849695917,
-      "grm_market": 10.654008438818565,
-      "cap_current": 6.015049504950495,
-      "cap_market": 6.263234323432343,
+      "grm_current": 10.280915146249638,
+      "grm_market": 9.985935302390999,
+      "cap_current": 6.499753521126761,
+      "cap_market": 6.764542253521126,
       "cap_current_basis": "LAAA calculation: current NOI / recommended value",
       "cap_market_basis": "LAAA calculation: market NOI / recommended value",
-      "noi_current": 182256,
-      "noi_market": 189776,
+      "noi_current": 184593,
+      "noi_market": 192113,
       "tax_rate": 1.23,
       "tax_anchor": {
-        "ad_valorem": 37269,
+        "ad_valorem": 34932,
         "flat_assessments": 0,
         "expense_line": "Real Estate Taxes"
       },
-      "expense_total": 85697,
-      "expense_per_unit": 8569.7,
-      "expense_per_sf": 13.000151699029127,
+      "expense_total": 83360,
+      "expense_per_unit": 8336.0,
+      "expense_per_sf": 12.645631067961165,
       "unit_mix": [
         {
           "count": 4,
@@ -354,47 +354,47 @@
           275868
         ],
         "expenses": [
-          85697,
-          86092
+          83360,
+          83755
         ],
         "expense_ratio": [
-          31.9821013386676,
-          31.20767903490075
+          31.10993345847966,
+          30.36053474850291
         ],
         "noi": [
-          182256,
-          189776
+          184593,
+          192113
         ],
         "loan_payments": [
-          -145519,
-          -145519
+          -136394,
+          -136394
         ],
         "pretax_cf": [
-          36737,
-          44257
+          48199,
+          55719
         ],
         "pretax_cf_pct": [
-          3.464120697784064,
-          4.173220179160773
+          4.848993963782696,
+          5.605533199195171
         ],
         "principal_reduction": [
-          23078,
-          23078
+          21631,
+          21631
         ],
         "total_return": [
-          59815,
-          67335
+          69830,
+          77350
         ],
         "total_return_pct": [
-          5.64026402640264,
-          6.34936350777935
+          7.025150905432595,
+          7.78169014084507
         ]
       },
       "expense_lines": [
         [
           "Real Estate Taxes",
-          37269,
-          37269,
+          34932,
+          34932,
           "4"
         ],
         [
@@ -543,10 +543,10 @@
       },
       "financing_structure": "new_financing",
       "financing": {
-        "loan_amount": 1969500,
+        "loan_amount": 1846000,
         "rate": 6.25,
         "amortization": 30,
-        "dcr": 1.25,
+        "dcr": 1.35,
         "basis": "illustrative_assumption"
       },
       "highlights": [
@@ -585,8 +585,8 @@
         "The two-bedroom comparables carry larger floor plans than the subject's, so the two-bedroom conclusion is set below the top of the range rather than at it."
       ],
       "valuation_narrative": [
-        "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.02% current cap rate and 10.97 GRM, improving to a 6.26% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
-        "At $303,000 per unit the price sits above the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.02% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings are what carry that position.",
+        "The recommended list price is $2,840,000, within a supported range of $2.75M to $2.95M. On the ten units with the four vacant units at asking rents, the price reflects a 6.50% current cap rate and 10.28 GRM, improving to a 6.76% cap rate at underwritten market rents on turnover. With occupied rents already within about 3% of underwritten market levels, the price is set on day-one yield rather than projected upside. Real estate taxes are underwritten at reassessment on the list price.",
+        "At $284,000 per unit the price sits in the upper half of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.50% day-one yield at the top of the 5.17% to 6.52% band on older, un-upgraded buildings are what carry that position.",
         "The lease-up of the four vacant units is the primary execution item; at asking rents they represent $112,800 of the $276,240 annual scheduled gross income."
       ],
       "strategy": [
