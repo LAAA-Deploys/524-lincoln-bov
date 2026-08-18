@@ -19,6 +19,7 @@
  */
 import { chromium } from 'playwright';
 import { discoverPages, assertRendered } from './audit_pages.mjs';
+import { probeNavigation } from './nav_probe.mjs';
 const PAGES = discoverPages();   // every staged route, never a hardcoded list
 const BASE = process.argv[2] || 'http://localhost:8901';
 const b = await chromium.launch(); let bad=0; let renderFailures=0;
@@ -31,24 +32,10 @@ for (const w of [320,390,768,1440]) {
     // returns null and the probe died with an unguarded TypeError, which also
     // aborted the whole sweep so no later page was checked at all.
     if (!await assertRendered(p, path)) { renderFailures++; continue; }
-    const r = await p.evaluate(async ()=>{
-      const n=document.getElementById('toc-nav');
-      n.style.scrollBehavior='auto';
-      const links=[...n.querySelectorAll('a')];
-      const unreachable=[];
-      // walk the scroller end to end and record which links are ever fully visible
-      const seen=new Set(); const max=n.scrollWidth-n.clientWidth;
-      for(let x=0;x<=max+1;x+=20){
-        n.scrollLeft=x; await new Promise(r=>requestAnimationFrame(r));
-        const nr=n.getBoundingClientRect();
-        links.forEach(a=>{const ar=a.getBoundingClientRect();
-          if(ar.left>=nr.left-2 && ar.right<=nr.right+2) seen.add(a.textContent.trim());});
-      }
-      links.forEach(a=>{const t=a.textContent.trim(); if(!seen.has(t)) unreachable.push(t);});
-      return {total:links.length, unreachable, overflow:max};
-    });
+    const r = await p.evaluate(probeNavigation);
     const tag=(path.replace('/index.html','')||'/').padEnd(12);
-    if(r.unreachable.length){bad++;console.log(`  ${w}px ${tag} UNREACHABLE: ${r.unreachable.join(', ')}`);}
+    if(r.error){bad++;console.log(`  ${w}px ${tag} ${r.error}`);}
+    else if(r.unreachable.length){bad++;console.log(`  ${w}px ${tag} UNREACHABLE: ${r.unreachable.join(', ')}`);}
     else console.log(`  ${w}px ${tag} all ${r.total} links reachable (scrollable ${r.overflow}px)`);
   }
   await ctx.close();

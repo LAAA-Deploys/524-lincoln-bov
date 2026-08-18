@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laaa.com/contracts/bov/comps-rent-1.0.0.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "deal_id", "as_of_date", "poison_log_refs", "rows", "conclusions"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "deal_id": {"type": "string"}, "as_of_date": {"type": "string", "format": "date"},
+    "poison_log_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "rows": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/row"}},
+    "conclusions": {"type": "object", "additionalProperties": false, "required": ["summary", "accepted_ids", "excluded_ids"], "properties": {"summary": {"type": "string", "minLength": 1}, "accepted_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}, "excluded_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}}}
+  },
+  "$defs": {
+    "row": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "status", "address", "source", "unit_type", "monthly_rent", "unit_sf", "unit_sf_basis", "rent_per_sf", "physical_differences", "operational_differences", "quality_rating", "weight", "weight_reason", "pin", "distance_miles"],
+      "properties": {
+        "id": {"type": "string"}, "status": {"enum": ["leased", "active", "pending", "expired"]}, "address": {"type": "string"},
+        "source": {"type": "object", "additionalProperties": false, "required": ["source_id", "record_id", "verified_at"], "properties": {"source_id": {"type": "string"}, "record_id": {"type": "string"}, "verified_at": {"type": "string", "format": "date"}}},
+        "unit_type": {"type": "string"}, "monthly_rent": {"type": "number", "minimum": 0}, "unit_sf": {"type": ["number", "null"]}, "unit_sf_basis": {"enum": ["verified", "labelled_estimate", "omitted"]}, "rent_per_sf": {"type": ["number", "null"]},
+        "physical_differences": {"type": "array", "items": {"type": "string"}}, "operational_differences": {"type": "array", "items": {"type": "string"}},
+        "quality_rating": {"enum": ["A", "B", "C", "exclude"]}, "weight": {"type": "number", "minimum": 0, "maximum": 1}, "weight_reason": {"type": "string", "minLength": 1},
+        "pin": {"type": "object", "additionalProperties": false, "required": ["place_id", "latitude", "longitude"], "properties": {"place_id": {"type": "string"}, "latitude": {"type": "number", "minimum": -90, "maximum": 90}, "longitude": {"type": "number", "minimum": -180, "maximum": 180}}},
+        "distance_miles": {"type": "number", "minimum": 0}, "as_of_date": {"type": ["string", "null"], "format": "date"}, "image": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

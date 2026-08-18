@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laaa.com/contracts/bov/deal-1.0.0.schema.json",
+  "title": "BOV deal identity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "document_type", "deal_id", "slug", "seller_side",
+    "workspace_root", "primary_address", "addresses", "address_provenance", "apns", "apn_provenance", "unit_count",
+    "year_built", "building_sf", "lot", "jurisdiction", "rooftop_pin",
+    "portfolio_ref", "public_names", "workspace_layout", "presentation",
+    "regulatory_conclusions", "unit_sf"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "document_type": {"const": "bov"},
+    "deal_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "seller_side": {"type": "boolean"},
+    "workspace_root": {"type": "string", "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)).+$"},
+    "primary_address": {"type": "string", "minLength": 3},
+    "addresses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 3}},
+    "address_provenance": {"$ref": "#/$defs/provenance"},
+    "apns": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 3}},
+    "apn_provenance": {"$ref": "#/$defs/provenance"},
+    "unit_count": {"$ref": "#/$defs/provenancedInteger"},
+    "year_built": {"$ref": "#/$defs/provenancedInteger"},
+    "renovated_year": {"$ref": "#/$defs/provenancedInteger"},
+    "building_sf": {
+      "type": "object", "additionalProperties": false,
+      "required": ["value", "provenance", "sf_basis"],
+      "properties": {
+        "value": {"type": "number", "exclusiveMinimum": 0},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "sf_basis": {"enum": ["verified_gross", "verified_rentable", "labelled_estimate", "unknown"]}
+      }
+    },
+    "lot": {
+      "type": "object", "additionalProperties": false, "required": ["square_feet", "provenance"],
+      "properties": {"square_feet": {"type": "number", "exclusiveMinimum": 0}, "acres": {"type": ["number", "null"], "minimum": 0}, "provenance": {"$ref": "#/$defs/provenance"}}
+    },
+    "jurisdiction": {"type": "string", "minLength": 2},
+    "rooftop_pin": {
+      "type": "object", "additionalProperties": false,
+      "required": ["place_id", "latitude", "longitude", "review_state", "reviewed_by", "reviewed_at"],
+      "properties": {
+        "place_id": {"type": "string", "minLength": 5},
+        "latitude": {"type": "number", "minimum": -90, "maximum": 90},
+        "longitude": {"type": "number", "minimum": -180, "maximum": 180},
+        "review_state": {"const": "approved_rooftop"},
+        "reviewed_by": {"type": "string", "minLength": 2},
+        "reviewed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "portfolio_ref": {"type": ["string", "null"]},
+    "public_names": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 2}},
+    "workspace_layout": {
+      "type": "object", "additionalProperties": false,
+      "required": ["site_repo", "model_workbook", "source_documents", "media_root"],
+      "properties": {
+        "site_repo": {"$ref": "#/$defs/relativePath"},
+        "model_workbook": {"$ref": "#/$defs/relativePath"},
+        "source_documents": {"$ref": "#/$defs/relativePath"},
+        "media_root": {"$ref": "#/$defs/relativePath"}
+      }
+    },
+    "presentation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["domain", "client", "title", "subtitle", "month_year", "short_name", "city", "submarket", "parking", "team"],
+      "properties": {
+        "domain": {"type": "string", "minLength": 3}, "client": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1}, "subtitle": {"type": "string", "minLength": 1},
+        "month_year": {"type": "string", "minLength": 3}, "cover_label": {"type": "string"},
+        "short_name": {"type": "string", "minLength": 1}, "city": {"type": "string", "minLength": 2},
+        "submarket": {"type": "string", "minLength": 2}, "parking": {"type": "string"},
+        "track_record_submarkets": {
+          "description": "OPTIONAL. Adjacent submarkets to count TOGETHER as this property's local track record, with the label to print. A single submarket is the default and needs nothing here; a property whose market is genuinely read as a cluster of adjacent submarkets declares that cluster explicitly rather than the engine guessing which names belong together. 'submarkets' must be Airtable Submarket values matched exactly, and 'label' is the client-facing phrase after the count, e.g. 'in the South Valley'. Every named submarket is aggregated, so the published count is auditable against the same closed-deal source as every other track-record figure.",
+          "type": "object", "additionalProperties": false,
+          "required": ["submarkets", "label"],
+          "properties": {
+            "submarkets": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 2}},
+            "label": {"type": "string", "minLength": 2}
+          }
+        },
+        "team": {"$ref": "#/$defs/team"},
+        "maps": {"type": "object", "additionalProperties": false, "properties": {"subject": {"type": ["string", "null"]}, "sale": {"type": ["string", "null"]}, "rent": {"type": ["string", "null"]}, "active": {"type": ["string", "null"]}}},
+        "no_photo_cover": {"type": ["string", "null"]},
+        "hero_tall": {"type": ["string", "null"]}
+      }
+    },
+    "regulatory_conclusions": {
+      "type": "object", "additionalProperties": false, "required": ["rent_control", "zoning", "development"],
+      "properties": {
+        "rent_control": {"$ref": "#/$defs/conclusion"},
+        "zoning": {"$ref": "#/$defs/conclusion"},
+        "development": {"$ref": "#/$defs/conclusion"}
+      }
+    },
+    "unit_sf": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["unit_type", "value", "sf_basis", "approval_exception_id"], "properties": {"unit_type": {"type": "string", "minLength": 1}, "value": {"type": ["number", "null"], "exclusiveMinimum": 0}, "sf_basis": {"enum": ["verified", "labelled_estimate", "omitted"]}, "approval_exception_id": {"type": ["string", "null"]}}, "allOf": [{"if": {"properties": {"sf_basis": {"const": "omitted"}}}, "then": {"properties": {"value": {"type": "null"}}}, "else": {"properties": {"value": {"type": "number", "exclusiveMinimum": 0}}}}]}}
+  },
+  "$defs": {
+    "relativePath": {"type": "string", "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)).+$"},
+    "provenance": {"type": "object", "additionalProperties": false, "required": ["authority", "source_ids"], "properties": {"authority": {"type": "string", "minLength": 2}, "source_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}, "conflict_exception_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}}},
+    "provenancedInteger": {"type": "object", "additionalProperties": false, "required": ["value", "provenance"], "properties": {"value": {"type": "integer", "minimum": 1}, "provenance": {"$ref": "#/$defs/provenance"}}},
+    "conclusion": {"type": "object", "additionalProperties": false, "required": ["conclusion", "support_refs", "as_of_date", "approved_exception_id"], "properties": {"conclusion": {"type": "string", "minLength": 1}, "support_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}, "as_of_date": {"type": "string", "format": "date"}, "approved_exception_id": {"type": ["string", "null"]}}},
+    "team": {"type": "object", "additionalProperties": false, "required": ["leads", "grid"], "properties": {"leads": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/teamMember"}}, "grid": {"type": "array", "items": {"$ref": "#/$defs/teamMember"}}}},
+    "teamMember": {"type": "object", "additionalProperties": false, "required": ["name", "title", "phone", "tel", "email", "license", "headshot", "bio"], "properties": {"name": {"type": "string"}, "title": {"type": "string"}, "phone": {"type": "string"}, "tel": {"type": "string"}, "email": {"type": "string"}, "license": {"type": "string"}, "headshot": {"type": "string"}, "bio": {"type": "string"}}}
+  }
+}

@@ -33,17 +33,57 @@ Every check below is an actual failure, not a hypothetical:
   A rebuild silently reverted the live track-record and marketing figures to a
   hardcoded snapshot that was stale and looked correct. Check 12.
 
+  The internal approval record shipped into the PUBLIC deal repository and was
+  readable, unauthenticated, at raw.githubusercontent.com. The deploy workflow
+  stages an allowlist into _site, so the published site was never the defect;
+  the repository was. Check 19, an allowlist over the whole deploy tree.
+
 CALIBRATION MATTERS. Every rule here was run against the locked reference build
 before being enforced. The price-before-reveal rule in particular has an
 explicit carve-out because Camarillo itself quotes the price inside a buyer
 objection answer in #property-info, and a naive version of that check would
 permanently fail the very design it is protecting.
 """
+import hashlib
+import importlib.util
 import json
+import os
 import re
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+
+def _site_artifacts():
+    """Load the shared deploy-artifact allowlist from whichever layout we are in.
+
+    This gate runs from three places and must behave identically in all three:
+    the repo (`scripts/`), the `.ci/` bundle copied into a deal repo, and the
+    laaa-core plugin (`plugins/laaa-core/scripts/`). Loading by explicit file
+    path keeps the rule in ONE module without giving a standalone gate a package
+    dependency or a sys.path trick. A missing module fails closed: a gate that
+    silently skips its allowlist is how the leak survived in the first place.
+    """
+    here = Path(__file__).resolve().parent
+    candidates = (
+        here / "reporting" / "bovsite" / "site_artifacts.py",         # .ci/ bundle
+        here.parent / "reporting" / "bovsite" / "site_artifacts.py",  # repo
+        here.parent / "vendor" / "bovsite" / "site_artifacts.py",     # laaa-core plugin
+    )
+    for candidate in candidates:
+        if candidate.is_file():
+            spec = importlib.util.spec_from_file_location("bov_site_artifacts", candidate)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            return module
+    raise SystemExit(
+        "site_artifacts.py is missing beside this gate, so the deploy-artifact "
+        "allowlist cannot be enforced. Rebuild with build_bov_site.py, which "
+        "refreshes .ci/ on every run.\n  looked in: "
+        + "\n             ".join(str(path) for path in candidates)
+    )
+
 
 FRAMEWORK_CONFIGS = ["vite.config.ts", "vite.config.js", "next.config.js", "next.config.mjs",
                      "svelte.config.js", "astro.config.mjs", "nuxt.config.ts", "remix.config.js"]
@@ -60,14 +100,26 @@ BANNED_SOURCES = [
     (r'geocoding\.geo\.census\.gov', "Census geocoder"),
     (r'nominatim', "Nominatim"),
 ]
-#: A build older than this is not "current" for a client-facing page. One
-#: working day: long enough to build, review and deploy without a rebuild,
-#: short enough that a figure cannot quietly drift for a week.
-MAX_FIGURE_AGE_HOURS = 24
+#: A build older than this is not "current" for a client-facing page. Seven
+#: days (Glen, 2026-08-07): the original 24-hour window forced a re-approval of
+#: an unchanged two-line diff when a 10-minute outage pushed a build past the
+#: window (the 38050 Palmdale resume ledger, 2026-08-06/07). One week is long
+#: enough to build, review, and release without a rebuild, short enough that a
+#: figure cannot quietly drift for a quarter.
+MAX_FIGURE_AGE_HOURS = 168
+
+#: Validated-SHA exemption (Glen, 2026-08-07). When a release dispatch targets
+#: a commit that ALREADY passed this gate, the age of its figures is a warning,
+#: not a failure: re-publishing the exact approved bytes must not require a
+#: rebuild that would change them. The exemption is SHA-bound and narrow:
+#: `BOV_VALIDATED_SHA` must equal the site work tree's HEAD, and only the
+#: figure-age rule is relaxed. Every other rule still fails the build.
+VALIDATED_SHA_ENV = "BOV_VALIDATED_SHA"
 
 REQUIRED_FILES = ["index.html", "CNAME", ".nojekyll", "og.jpg"]
 SECTION_ORDER = ["track-record", "marketing", "investment", "location", "prop-details",
-                 "photos", "property-info", "rent-comps", "sale-comps", "on-market",
+                 "photos", "property-info", "rent-comps", "sale-comps",
+                 "opinion-of-value", "on-market",
                  "financials", "contact"]
 
 fails, warns = [], []
@@ -79,6 +131,30 @@ def fail(msg):
 
 def warn(msg):
     warns.append(msg)
+
+
+def validated_sha_exemption(site):
+    """Return the exempting SHA when BOV_VALIDATED_SHA matches the site HEAD.
+
+    The claim is verified, never trusted: the environment variable must name
+    the exact commit this work tree is at, or the exemption is ignored with a
+    warning. A claim without a git work tree proves nothing and is ignored too.
+    """
+    claimed = os.environ.get(VALIDATED_SHA_ENV, "").strip()
+    if not claimed:
+        return None
+    try:
+        head = subprocess.run(
+            ["git", "-C", str(site), "rev-parse", "HEAD"],
+            capture_output=True, text=True, check=True,
+        ).stdout.strip()
+    except (subprocess.CalledProcessError, OSError):
+        warn(f"{VALIDATED_SHA_ENV} is set but {site} is not a git work tree; exemption ignored")
+        return None
+    if head != claimed:
+        warn(f"{VALIDATED_SHA_ENV} {claimed[:12]} does not match site HEAD {head[:12]}; exemption ignored")
+        return None
+    return claimed
 
 
 #: Build scratch, not deployable routes. Auditing _site double-counts the
@@ -96,6 +172,208 @@ def routes(site):
         if (d / "index.html").exists():
             out.append(d / "index.html")
     return out
+
+
+def image_references(html):
+    """Return image assets from ordinary attributes, CSS URLs, and srcset.
+
+    ``srcset`` is its own URL-list grammar. Treating it as ``src`` silently
+    skipped the mobile side of every ``<picture>`` element, so a missing tall
+    map could pass while the desktop image existed.
+    """
+    suffix = r"(?:jpg|jpeg|png|webp|svg)"
+    refs = set(re.findall(
+        rf"""(?:src|href|content)=["']([^"']+\.{suffix}(?:[?#][^"']*)?)["']""",
+        html,
+        re.I,
+    ))
+    for value in re.findall(r"""srcset=["']([^"']+)["']""", html, re.I):
+        for candidate in value.split(","):
+            ref = candidate.strip().split()[0] if candidate.strip() else ""
+            if re.search(rf"\.{suffix}(?:[?#].*)?$", ref, re.I):
+                refs.add(ref)
+    for groups in re.findall(
+            rf"""url\(\s*(?:"([^"]+\.{suffix}(?:[?#][^"]*)?)"|'([^']+\.{suffix}(?:[?#][^']*)?)'|([^)"']+\.{suffix}(?:[?#][^)"']*)?))\s*\)""",
+            html,
+            re.I):
+        refs.add(next(group for group in groups if group))
+    return refs
+
+
+def local_image_path(site, page, ref, domain):
+    """Resolve a page image reference when it belongs to this build."""
+    if ref.startswith("data:"):
+        return None
+    if ref.startswith(("http://", "https://")):
+        if not domain or domain not in ref:
+            return None
+        relative = ref.split(domain, 1)[1].split("#", 1)[0].split("?", 1)[0]
+        return (site / relative.lstrip("/")).resolve()
+    relative = ref.split("#", 1)[0].split("?", 1)[0]
+    return (page.parent / relative).resolve()
+
+
+def price_scan_markup(html):
+    """Return pre-reveal markup except the calibrated Buyer Profile carve-out."""
+    head = html.split('id="sale-comps"')[0]
+    marker = 'id="property-info"'
+    allowed_at = head.find(marker)
+    if allowed_at < 0:
+        return head
+
+    # Only Buyer Profile is exempt. Resume at the next locked section so Rent
+    # Comps remains inside the price-discipline scan.
+    later = []
+    for section in SECTION_ORDER[SECTION_ORDER.index("property-info") + 1:]:
+        position = head.find(f'id="{section}"', allowed_at + len(marker))
+        if position >= 0:
+            later.append(position)
+    resume_at = min(later) if later else len(head)
+    return head[:allowed_at] + head[resume_at:]
+
+
+#: Labelled containers that must never render without content. Each is a
+#: heading plus its items; with no items the page publishes a titled empty box.
+#: The live 11747 Moorpark page shipped an empty "Key Achievements" panel and an
+#: empty "As Featured In" strip because the renderer emitted both
+#: unconditionally and NO gate looked at section CONTENT, only at section
+#: presence and order. A number-focused human read misses this every time,
+#: because nothing is wrong with any number.
+EMPTY_CONTAINER_PATTERNS = [
+    (r'<div class="condition-note"><div class="condition-note-label">[^<]*</div>\s*<p class="achievements-list">\s*</p>\s*</div>', "Key Achievements panel"),
+    (r'<div class="press-strip"><span class="press-strip-label">[^<]*</span>\s*</div>', "As Featured In strip"),
+]
+
+
+#: Every Client Basis sentence renders inside exactly one of these, and
+#: nowhere else on the page.
+OS_NOTE_PATTERN = re.compile(r'<p class="os-note">.*?</p>', re.S)
+
+
+def operating_statement_notes_markup(html):
+    """Concatenate every Client Basis note paragraph, and nothing else.
+
+    An earlier version of this scan sliced the whole #financials section.
+    Codex caught that #financials also carries valuation_narrative and
+    disclosure copy, where "market benchmark" or "TOC Tier 3" can be an
+    ordinary, correct sentence, not the internal-vocabulary leak this check
+    exists to catch (2026-08-09). Client Basis text renders ONLY inside
+    <p class="os-note">, so scanning just those paragraphs is narrower than
+    #financials and still catches the real defect: the live 11747 Moorpark
+    page's "Tier 1 benchmark of $0.11 per square foot" was itself an os-note.
+    """
+    return "".join(OS_NOTE_PATTERN.findall(html))
+
+
+#: Matches a note marker at its FIRST kind of appearance: an income line's
+#: <sup>[N]</sup> or an expense line's / notes-list <span class="note-ref">[N]</span>.
+NOTE_MARKER_INLINE = re.compile(r'(?:<sup>|<span class="note-ref">)\[(\d+)\]')
+#: Matches only the Notes to the Operating Statement list's own entries.
+NOTE_LIST_ITEM = re.compile(r'<p class="os-note"><span class="note-ref">\[(\d+)\]</span>')
+
+
+def check_note_marker_reading_order(rel, html):
+    """Every note marker must read 1, 2, 3... in the order a reader meets it.
+
+    payload._renumber_notes_in_reading_order assigns marker numbers in
+    document reading order as the final step of payload construction, so
+    this is a page-level tripwire against future drift, not a duplicate of
+    that logic: the live 11747 Moorpark page numbered notes 15, 13, 14, then
+    1..12, because markers were allocated in table-build order (expenses
+    first, income appended after) rather than reading order (Glen,
+    2026-08-09). If sections.py's document order ever changes without the
+    reading-order constant changing with it, first-seen order stops matching
+    1..N and this fails loudly instead of silently shipping a page where a
+    reader meets [15] before [1].
+    """
+    seen_order, seen_set = [], set()
+    for m in NOTE_MARKER_INLINE.finditer(html):
+        n = m.group(1)
+        if n not in seen_set:
+            seen_set.add(n)
+            seen_order.append(n)
+    if not seen_order:
+        return
+    expected = [str(i) for i in range(1, len(seen_order) + 1)]
+    if seen_order != expected:
+        fail(f"{rel}: note markers are not in first-seen reading order. "
+             f"got {seen_order}, expected {expected}. A reader must meet "
+             f"[1] before [2], never [15] before [1].")
+
+    list_order = [m.group(1) for m in NOTE_LIST_ITEM.finditer(html)]
+    if list_order and list_order != sorted(list_order, key=int):
+        fail(f"{rel}: the Notes to the Operating Statement list itself is "
+             f"not in ascending order: {list_order}.")
+
+
+def check_no_internal_vocabulary_in_financials(rel, html):
+    """Fail a page whose Client Basis text uses internal build-up vocabulary.
+
+    Scoped to the rendered os-note paragraphs, not the whole #financials
+    section or the whole page: "benchmark" also appears in ordinary English
+    in Sale Comps rationale text (e.g. "closest closed scale and location
+    benchmark") and in #financials' own valuation narrative and disclosure
+    copy, neither of which is the leak this exists to catch (Codex,
+    2026-08-09). The live 11747 Moorpark page printed "Tier 1 benchmark of
+    $0.11 per square foot" because a note was transcribed verbatim from the
+    internal build-up table instead of translated (Glen, 2026-08-09).
+    """
+    notes_html = operating_statement_notes_markup(html)
+    for pat, label in ((r'>[^<]*\bbenchmark[^<]*<', '"benchmark"'),
+                        (r'>[^<]*\btier\s*\d[^<]*<', '"Tier N"')):
+        m = re.search(pat, notes_html, re.I)
+        if m:
+            fail(f"{rel}: an operating-statement note publishes internal "
+                 f"methodology vocabulary ({label}): "
+                 f"{m.group(0)[1:80].strip()}. Client Basis text must be "
+                 f"translated into language a seller reads, not "
+                 f"transcribed from the internal build-up table.")
+
+
+def check_no_empty_labelled_containers(rel, html):
+    """Fail a page that renders a labelled container with nothing inside it."""
+    for pattern, what in EMPTY_CONTAINER_PATTERNS:
+        if re.search(pattern, html):
+            fail(f"{rel}: the {what} renders with a heading and no content. "
+                 f"A labelled empty box is a defect, not a layout choice: omit "
+                 f"the block when the spine supplies nothing for it.")
+
+
+def check_certified_map_renders(site, referenced_images):
+    """Re-hash every map image that the deployable pages reference."""
+    map_refs = sorted(
+        ref for ref in referenced_images
+        if ref.startswith("images/maps-") and ref.lower().endswith(".png")
+    )
+    if not map_refs:
+        return
+
+    manifest = site / "map-manifest.json"
+    if not manifest.is_file():
+        fail("map-manifest.json is missing, so deployed map bytes cannot be re-verified.")
+        return
+    try:
+        payload = json.loads(manifest.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        fail(f"map-manifest.json is not valid JSON: {exc}")
+        return
+    renders = payload.get("renders")
+    if not isinstance(renders, dict):
+        fail("map-manifest.json: 'renders' must contain certified SHA-256 digests.")
+        return
+
+    for ref in map_refs:
+        expected = renders.get(ref)
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
+            fail(f"map-manifest.json has no certified SHA-256 digest for deployed map {ref}.")
+            continue
+        path = site / ref
+        if not path.is_file():
+            continue  # the ordinary broken-image check already reports this
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            fail(f"deployed map digest does not match map-manifest.json: {ref}. "
+                 f"Regenerate it with the certified maps.py workflow.")
 
 
 def main(site):
@@ -124,6 +402,8 @@ def main(site):
         except (json.JSONDecodeError, KeyError):
             pass   # reported below by the stats check
 
+    referenced_images = set()
+
     # 1. framework config files
     for name in FRAMEWORK_CONFIGS:
         if (site / name).exists():
@@ -146,6 +426,9 @@ def main(site):
         # 4. the locked container width
         if "max-width: 1100px" not in html:
             fail(f"{rel}: the 1100px .section container is missing.")
+
+        # 4a. no labelled container may render empty
+        check_no_empty_labelled_containers(rel, html)
 
         # 5. no inlined images
         if "data:image" in html:
@@ -187,6 +470,9 @@ def main(site):
             fail(f"{rel}: publishes a confidence level ({m.group(0)[1:60].strip()}). "
                  f"Confidence assessment stays in the internal workspace, never on a client page.")
 
+        # 11c. no internal methodology vocabulary in Client Basis text.
+        check_no_internal_vocabulary_in_financials(rel, html)
+
         # 12. no PDF download button on a website
         if "pdf-float-btn" in html or re.search(r'>\s*Download PDF\s*<', html):
             fail(f"{rel}: carries a Download PDF button. Removed from websites (Glen, 2026-07-30).")
@@ -203,20 +489,17 @@ def main(site):
         # skipped the share card, which is the one image whose absence is
         # invisible on the page and obvious in every link preview.
         domain = (site / "CNAME").read_text(encoding="utf-8").strip() if (site / "CNAME").exists() else ""
-        refs = (set(re.findall(r'(?:src|href|content)="([^"]+\.(?:jpg|jpeg|png|webp|svg))"', html))
-                | set(re.findall(r"url\('([^']+\.(?:jpg|jpeg|png|webp|svg))'\)", html)))
-        for ref in refs:
-            if ref.startswith("data:"):
+        for ref in image_references(html):
+            local = local_image_path(site, page, ref, domain)
+            if local is None:
                 continue
-            if ref.startswith(("http://", "https://")):
-                if domain and domain in ref:
-                    local = site / ref.split(domain, 1)[1].lstrip("/")
-                    if not local.exists():
-                        fail(f"{rel}: {ref} points at our own domain but the file is not in the build: "
-                             f"{local.relative_to(site)}")
-                continue
-            if not (page.parent / ref).resolve().exists():
+            if not local.exists():
                 fail(f"{rel}: broken image reference {ref}")
+                continue
+            try:
+                referenced_images.add(local.relative_to(site).as_posix())
+            except ValueError:
+                pass
 
         # 15. section order
         found = [s for s in re.findall(r'id="([a-z-]+)"', html) if s in SECTION_ORDER]
@@ -235,11 +518,14 @@ def main(site):
             mandatory = {
                 "track-record", "marketing", "investment", "location",
                 "prop-details", "property-info", "rent-comps", "sale-comps",
-                "financials", "contact",
+                "opinion-of-value", "financials", "contact",
             }
             missing = [s for s in SECTION_ORDER if s in mandatory and s not in found]
             if missing:
                 fail(f"{rel}: missing mandatory section(s): {', '.join(missing)}")
+
+        # 15b. note markers read 1, 2, 3... in first-seen document order.
+        check_note_marker_reading_order(rel, html)
 
         # 16. BOV price discipline, with the documented Camarillo carve-out.
         #
@@ -250,16 +536,18 @@ def main(site):
         if "sale-comps" in found and "financials" in found and prices_by_slug:
             token = prices_by_slug.get(page.parent.name) or prices_by_slug.get("__single__")
             if token:
-                head = html.split('id="sale-comps"')[0]
                 # Camarillo quotes the price inside a buyer-objection answer in
                 # #property-info. That IS the locked design, so it is allowed
-                # there and nowhere else before the reveal. Without this carve-out
-                # the gate would permanently fail the build it exists to protect.
-                if 'id="property-info"' in head:
-                    head = head.split('id="property-info"')[0]
-                if token in head:
+                # there and nowhere else before the reveal. Rent Comps follows
+                # Buyer Profile and must still be scanned.
+                if token in price_scan_markup(html):
                     fail(f"{rel}: the subject price {token} appears before #sale-comps. "
                          f"On a BOV the valuation reveal belongs in Financial Analysis.")
+
+    # Re-run the certified-render hashes on the exact map files referenced by
+    # deployable pages. The build-time schema check is not enough: a PNG can be
+    # changed after generation but before workflow_dispatch.
+    check_certified_map_renders(site, referenced_images)
 
     # 17. required files
     for name in REQUIRED_FILES:
@@ -300,9 +588,17 @@ def main(site):
                 else:
                     age = (datetime.now(timezone.utc) - generated_at).total_seconds() / 3600
                     if age > MAX_FIGURE_AGE_HOURS:
-                        fail(f"the live figures are {age:.0f} hours old "
-                             f"(limit {MAX_FIGURE_AGE_HOURS}). "
-                             f"Rebuild so the published numbers are current.")
+                        exempt = validated_sha_exemption(site)
+                        if exempt:
+                            warn(f"the live figures are {age:.0f} hours old "
+                                 f"(limit {MAX_FIGURE_AGE_HOURS}), published under the "
+                                 f"validated-SHA exemption for {exempt[:12]}: this exact "
+                                 f"commit already passed the gate, and re-publishing "
+                                 f"approved bytes must not force a rebuild that changes them.")
+                        else:
+                            fail(f"the live figures are {age:.0f} hours old "
+                                 f"(limit {MAX_FIGURE_AGE_HOURS}). "
+                                 f"Rebuild so the published numbers are current.")
             except (TypeError, ValueError):
                 fail(f"stats.generated is not a valid timestamp: {generated!r}")
             # Every rendered page must carry the same pull it was built from.
@@ -315,20 +611,67 @@ def main(site):
                          f"bov-site.json records ({got or 'no stamp'} vs {generated}). "
                          f"The data file and the pages are out of sync; rebuild.")
 
+    # 19. DEPLOY-ARTIFACT SCOPE. A deal repository is public and
+    # raw.githubusercontent.com serves every tracked file in it, so the question
+    # is not "what does Pages publish" but "what would this tree commit".
+    #
+    # An ALLOWLIST, never a blocklist: a file nobody anticipated is refused
+    # rather than published. A blocklist would have had to name
+    # approval-record.json in advance, and nobody did. This gate classifies
+    # files, never their contents; addresses and escrow references are ordinary
+    # BOV substance and nothing here inspects a string.
+    for message in _site_artifacts().artifact_scope_errors(site, property_slugs):
+        fail(message)
+
     return report(site, pages)
+
+
+# June Mode, 2026-08-13: this gate is SPLIT BY FINDING CLASS rather than
+# demoted wholesale. A finding blocks only when it is a wrong fact or a
+# structural violation with a real consequence. Aesthetics and prose warn.
+#
+# Blocking classes, matched against the finding text:
+#   architecture  the no-framework ban (React/Vite/Next/SPA/bundler on a
+#                 website). The Blix/Brio scar; not waivable by anyone.
+#   property      wrong property, address, APN, or slug binding.
+#   financial     price, cap, GRM, $/unit, $/SF correctness.
+#   secrets       an API key or credential reaching emitted HTML.
+#   required      a required file missing from the shipped artifact.
+# Everything else (fonts, colors, section order, nav, spacing, copy, image
+# dimensions) reports and continues.
+_BLOCKING_PATTERNS = (
+    "framework", "react", "vite", "next.js", "svelte", "astro", "remix",
+    "slidev", "bundler", "hydration", "module script", "/assets/index-",
+    "apn", "address", "slug", "wrong property", "property mismatch",
+    "price", "cap rate", "grm", "$/unit", "$/sf", "per unit", "per sf",
+    "api key", "credential", "secret", "token",
+    "missing", "not found", "required file", "absent",
+)
+
+
+def _is_blocking(message):
+    m = str(message).lower()
+    return any(p in m for p in _BLOCKING_PATTERNS)
 
 
 def report(site, pages):
     print(f"\nBOV SITE GATE  {site}")
     print(f"checked {len(pages)} route file(s): {', '.join(str(p.relative_to(site)) for p in pages)}\n")
+    blocking = [f for f in fails if _is_blocking(f)]
+    advisory = [f for f in fails if not _is_blocking(f)]
     for w in warns:
         print(f"  warn  {w}")
-    for f in fails:
+    for a in advisory:
+        print(f"  advisory  {a}")
+    for f in blocking:
         print(f"  FAIL  {f}")
-    if not fails:
-        print(f"\n  PASS  {len(warns)} warning(s), nothing blocking. Safe to commit and deploy.")
+    if not blocking:
+        print(
+            f"\n  PASS  {len(warns) + len(advisory)} advisory finding(s), nothing blocking. "
+            "Safe to commit and deploy. Advisory findings create no work unless Glen asks."
+        )
         return 0
-    print(f"\n  {len(fails)} BLOCKING failure(s). Do not commit or deploy.")
+    print(f"\n  {len(blocking)} BLOCKING failure(s) (wrong fact or architecture). Do not commit or deploy.")
     return 1
 
 

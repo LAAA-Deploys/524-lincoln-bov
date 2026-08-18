@@ -3,187 +3,187 @@
     {
       "property": "524-lincoln",
       "category": "subject",
-      "lat": 34.15436,
-      "lng": -118.153412,
-      "place_id": "lightbox:02014IN2DJHD4KUSACPL3L",
+      "lat": 34.154379899999995,
+      "lng": -118.15343850000001,
+      "place_id": "ChIJwcedfwvDwoARgCUXan36arI",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "LightBox assessment coordinates, APN 5726-015-017; pending laaa-geo rooftop approval | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "524 Lincoln Ave. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "sold",
       "order": 1,
-      "lat": 34.16006,
-      "lng": -118.147154,
-      "place_id": "lightbox:02079NXRD4YPR74E2PC1YT",
+      "lat": 34.1600555,
+      "lng": -118.147316,
+      "place_id": "ChIJCcpq3xHDwoARsL1Vh6a-yHE",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "826 N Summit Ave, LightBox APN 5725-012-011 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "826 N Summit Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "sold",
       "order": 2,
-      "lat": 34.162527,
-      "lng": -118.148043,
-      "place_id": "lightbox:0202PCBJRVN8DS1A60RUC8",
+      "lat": 34.162546299999995,
+      "lng": -118.14807460000002,
+      "place_id": "ChIJSdDm5Q_DwoARvv2fRHLvxrs",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "965 N Summit Ave, LightBox APN 5728-003-033 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "965 N Summit Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "sold",
       "order": 3,
-      "lat": 34.154686,
-      "lng": -118.114157,
-      "place_id": "lightbox:0203YV5Z86EAOS09E2X7CY",
+      "lat": 34.154587,
+      "lng": -118.11417429999999,
+      "place_id": "ChIJn4315UzDwoARcWlOguIDDTs",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "1757 E Villa St, LightBox APN 5749-016-014 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "1757 E Villa St, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "sold",
       "order": 4,
-      "lat": 34.156442,
-      "lng": -118.136132,
-      "place_id": "lightbox:0206URM450Y780HNE612QV",
+      "lat": 34.1564873,
+      "lng": -118.13612309999999,
+      "place_id": "ChIJKUReURXDwoAReKCnNnq5khk",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "696 Earlham St, LightBox APN 5731-015-021 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "696 Earlham St, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "sold",
       "order": 5,
-      "lat": 34.157033,
-      "lng": -118.13642,
-      "place_id": "lightbox:0200QRGV5B9B4WX73VV1DT",
+      "lat": 34.157002399999996,
+      "lng": -118.1364071,
+      "place_id": "ChIJc_I1WxXDwoARgu6jWxqLCiU",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "679 Earlham St, LightBox APN 5731-014-006 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "679 Earlham St, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "sold",
       "order": 6,
-      "lat": 34.153225,
-      "lng": -118.14492,
-      "place_id": "lightbox:0203USNBPN073CAULIJFZH",
+      "lat": 34.153220999999995,
+      "lng": -118.14490699999999,
+      "place_id": "ChIJFdzJJW3DwoARKG9LwAcrE9Q",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "423 N Garfield Ave, LightBox APN 5725-027-026 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "423 N Garfield Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 1,
-      "lat": 34.154517,
-      "lng": -118.145643,
-      "place_id": "lightbox:0201MFKYUMOMF2FSL5S7U0",
+      "lat": 34.1542761,
+      "lng": -118.14564259999999,
+      "place_id": "ChIJV_XxxRLDwoARecltsSLDW5k",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "231 E Villa St, LightBox APN 5725-017-002 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "231 E Villa St, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 2,
-      "lat": 34.150667,
-      "lng": -118.140354,
-      "place_id": "lightbox:0205FOEG1KG6UGJZ4QAAIN",
+      "lat": 34.1506707,
+      "lng": -118.14032069999999,
+      "place_id": "ChIJnyEo5mvDwoAR3raCTWenefM",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "275 N Oakland Ave, LightBox APN 5723-005-035 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "275 N Oakland Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 3,
-      "lat": 34.157856,
-      "lng": -118.139185,
-      "place_id": "staticmap-interpolated-456-e-orange-grove",
+      "lat": 34.1574466,
+      "lng": -118.14088799999998,
+      "place_id": "ChIJmbo2hxTDwoAR4rcHWEX9Qpw",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "456 E Orange Grove Blvd; mid-block interpolation on the 400 block (Oakland to Madison) from labeled Static Maps render; geocoding API unavailable with available keys"
+      "source_note": "456 E Orange Grove Blvd, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 4,
-      "lat": 34.156068,
-      "lng": -118.14239,
-      "place_id": "lightbox:0206T3XPSDMTSSMRA1649S",
+      "lat": 34.1565893,
+      "lng": -118.1423849,
+      "place_id": "ChIJIePpbxPDwoARNAiuRb9LqQc",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "380 Parke St, LightBox APN 5725-032-019 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "380 Parke St, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 5,
-      "lat": 34.160168,
-      "lng": -118.148622,
-      "place_id": "lightbox:02034QZLDHTARIPN83E3SA",
+      "lat": 34.1602642,
+      "lng": -118.14865700000001,
+      "place_id": "ChIJ7ZKENw7DwoARMeg4cTMgoFY",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "820 N Raymond Ave, LightBox APN 5725-011-023 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "820 N Raymond Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 6,
-      "lat": 34.158893,
-      "lng": -118.157793,
-      "place_id": "lightbox:0204CQA7NWODTIOBVW169K",
+      "lat": 34.1589226,
+      "lng": -118.1577531,
+      "place_id": "ChIJe4NPNgjDwoAROaukFiVjsaM",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "869 Lincoln Ave, LightBox APN 5726-004-015 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "869 Lincoln Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 7,
-      "lat": 34.155787,
-      "lng": -118.141071,
-      "place_id": "lightbox:02059TL4DCHUZXXVUMSNCZ",
+      "lat": 34.1557337,
+      "lng": -118.14106299999999,
+      "place_id": "ChIJbQS1pRTDwoAR41a2yQnNlCg",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "570 N Los Robles Ave, LightBox APN 5731-004-014 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "570 N Los Robles Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 8,
-      "lat": 34.160551,
-      "lng": -118.149474,
-      "place_id": "lightbox:0206STT4H9P8MWQW03SSMW",
+      "lat": 34.160546599999996,
+      "lng": -118.1494709,
+      "place_id": "ChIJW8hOSw7DwoAR3ebekhgHRHM",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "853 N Raymond Ave, LightBox record resolved to 851 N Raymond (same parcel block), APN 5725-001-019 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "853 N Raymond Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     },
     {
       "property": "524-lincoln",
       "category": "rent",
       "order": 9,
-      "lat": 34.151113,
-      "lng": -118.14036,
-      "place_id": "lightbox:0206WP0E8ZKWKUDPQUP2S3",
+      "lat": 34.1511121,
+      "lng": -118.1403364,
+      "place_id": "ChIJs1WZ62vDwoARzswXXa7aOXw",
       "precision": "ROOFTOP",
       "needs_review": false,
-      "source_note": "303 N Oakland Ave, LightBox APN 5723-005-033 | pin basis: LightBox parcel coordinates; Filip authorized key + reviews rendered maps 2026-08-17"
+      "source_note": "303 N Oakland Ave, Pasadena. Google Places rooftop resolution via laaa-geo resolveAddress(), 2026-08-17"
     }
   ],
   "renders": {
-    "images/maps-portfolio-subjects.png": "e262fb3b64eeb526c2f2b733c297de159d0502e87a21b695f203649b54dbecc0",
-    "images/maps-portfolio-subjects-tall.png": "5e5d964df4af3068de9b572d0e7d8e963dfc0bc3390d7e52d18ff0ed00b1bf12",
-    "images/maps-524-lincoln-subject.png": "d4d6c7059c203b9b84987f8a25e372fbdf32d18c07b28058edab01de84fd21d9",
-    "images/maps-524-lincoln-subject-tall.png": "815045a8926a78a069e3240df9e740dc9674e80937b64ed56735c2bd28f42806",
-    "images/maps-524-lincoln-sale-comps.png": "6add09914909481bee0880a0b99af7ca358599774757d4cd75edea34a2352105",
-    "images/maps-524-lincoln-sale-comps-tall.png": "44612f943e8b190ff672700c256c6ba8b0ba96b70c9a9c9863f621da05ea8baa",
-    "images/maps-524-lincoln-rent-comps.png": "bdbe00ac5af7820aff3fef36d48391db5b18b4695203b9f426fc90831e9d7762",
-    "images/maps-524-lincoln-rent-comps-tall.png": "c0b9408b69cc263e3655468857258c216a558f4652534b09a09f11b7e111404a"
+    "images/maps-portfolio-subjects.png": "6510064f33e69d79f58c04b93af01d816de07cca50466fba760f943213db7c93",
+    "images/maps-portfolio-subjects-tall.png": "71cb85d7257e752d317b94dd2c5ae7c610c5af58718d3700f0b28b3af103cf3a",
+    "images/maps-524-lincoln-subject.png": "c89f98675971c5891c0f26a96a974e37146c366477e2bedfc3f0b3504fdb1ba2",
+    "images/maps-524-lincoln-subject-tall.png": "597af4f10af52612a0c05f4381b753d591a9af74f16f9e3aac5ede67f8e0ea23",
+    "images/maps-524-lincoln-sale-comps.png": "2964483a470717af370c19b21b1c0d624a6dfcb8e0cb7c7d1ed859b4bf5ddc8c",
+    "images/maps-524-lincoln-sale-comps-tall.png": "6dede05b6bb939a0b87c56d4e36caa2ba30c6db9bb41daf6d85ae925a4ae7d05",
+    "images/maps-524-lincoln-rent-comps.png": "df8651fd6052b86ee1667ff01612eb58722f779a3cea5aa5b10dc96adb73962b",
+    "images/maps-524-lincoln-rent-comps-tall.png": "eabb1c5774e1cc3965202e8fee3b333512f4cc70edadd6df7809a9bf6f85c189"
   }
 }

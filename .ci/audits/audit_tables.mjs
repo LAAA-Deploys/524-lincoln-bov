@@ -167,8 +167,16 @@ const audit = (L) => {
     }
 
     // Every table with aggregatable columns needs a summary row at all.
+    //
+    // One shape legitimately has no aggregate: a scenario ladder, whose rows are
+    // ALTERNATIVE values of the same asset rather than components of a whole.
+    // Summing four candidate prices, or averaging four scenario cap rates,
+    // produces a figure that is arithmetically fine and means nothing. Such a
+    // table opts out explicitly with data-summary-exempt, and must say why, so
+    // the exemption is a stated decision rather than a silent omission.
+    const exempt = table.getAttribute('data-summary-exempt');
     const summaryRow = bodyRows.find(r => r.classList.contains('summary'));
-    if (aggCols.length && !summaryRow) {
+    if (aggCols.length && !summaryRow && !exempt) {
       out.push({ table: tag, issue: 'NO_SUMMARY',
                  detail: `${aggCols.length} numeric column(s) and no summary row (${aggCols.map(c => c.header || '?').join(', ')})` });
     }
