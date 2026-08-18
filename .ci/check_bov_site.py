@@ -117,8 +117,8 @@ MAX_FIGURE_AGE_HOURS = 168
 VALIDATED_SHA_ENV = "BOV_VALIDATED_SHA"
 
 REQUIRED_FILES = ["index.html", "CNAME", ".nojekyll", "og.jpg"]
-SECTION_ORDER = ["track-record", "marketing", "investment", "location", "prop-details",
-                 "photos", "property-info", "rent-comps", "sale-comps",
+SECTION_ORDER = ["track-record", "marketing", "property-info", "investment", "location",
+                 "prop-details", "photos", "rent-comps", "sale-comps",
                  "opinion-of-value", "on-market",
                  "financials", "contact"]
 
@@ -221,8 +221,8 @@ def price_scan_markup(html):
     if allowed_at < 0:
         return head
 
-    # Only Buyer Profile is exempt. Resume at the next locked section so Rent
-    # Comps remains inside the price-discipline scan.
+    # Only Buyer Profile is exempt. Resume at Investment Overview so every
+    # later pre-sale-comps section remains inside the price-discipline scan.
     later = []
     for section in SECTION_ORDER[SECTION_ORDER.index("property-info") + 1:]:
         position = head.find(f'id="{section}"', allowed_at + len(marker))

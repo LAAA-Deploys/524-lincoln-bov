@@ -185,6 +185,14 @@ def check(workspace: DealWorkspace) -> CheckReport:
             report.error(
                 "property-match", f"{item_id}: published image is not human-confirmed"
             )
+        if item["stock_or_illustrative"] and (
+            item.get("exception_id") not in approved_exceptions
+        ):
+            report.error(
+                "stock-publication",
+                f"{item_id}: a stock or illustrative image is not this property; "
+                f"publishing one needs a recorded approved exception",
+            )
         # publication_basis is recorded for provenance but never gates a build.
         # A BOV publishes photographs of the client's own building into a
         # document prepared for that client, so there is no permission to seek

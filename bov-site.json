@@ -897,14 +897,14 @@
       "map_points": [],
       "track_record": {
         "all": {
-          "count": 492,
-          "volume": 1548928899.5,
-          "units": 4684
+          "count": 493,
+          "volume": 1553028899.5,
+          "units": 4704
         },
         "asset_class": {
-          "count": 340,
-          "volume": 1156335729.5,
-          "units": 4668
+          "count": 341,
+          "volume": 1160435729.5,
+          "units": 4688
         },
         "asset_class_label": "Apartments",
         "local": {
@@ -2598,7 +2598,7 @@
   },
   "stats": {
     "live": true,
-    "generated": "2026-08-18T18:21:28+00:00",
+    "generated": "2026-08-18T20:58:48+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
@@ -2619,14 +2619,14 @@
     },
     "portfolio_track_record": {
       "all": {
-        "count": 492,
-        "volume": 1548928899.5,
-        "units": 4684
+        "count": 493,
+        "volume": 1553028899.5,
+        "units": 4704
       },
       "asset_class": {
-        "count": 340,
-        "volume": 1156335729.5,
-        "units": 4668
+        "count": 341,
+        "volume": 1160435729.5,
+        "units": 4688
       },
       "asset_class_label": "Apartments",
       "local": null,
