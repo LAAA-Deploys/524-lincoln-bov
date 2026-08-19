@@ -177,20 +177,26 @@ jobs:
       # unreachable at 390px, a hero that 404s. All three run against _site, so
       # they test exactly what deploys, and all three run even if an earlier one
       # fails so a push surfaces every problem at once rather than one per push.
-      - name: Runtime audits
-        run: |
-          npm init -y >/dev/null 2>&1
-          npm i -D playwright@latest >/dev/null 2>&1
-          npx playwright install --with-deps chromium >/dev/null 2>&1
-          (cd _site && python3 -m http.server 8901 >/dev/null 2>&1 &)
-          for i in $(seq 1 20); do curl -sf http://localhost:8901/index.html >/dev/null && break; sleep 1; done
-          rc=0
-          AUDIT_ROOT=_site node .ci/audits/audit_tables.mjs http://localhost:8901 || rc=1
-          AUDIT_ROOT=_site node .ci/audits/audit_media.mjs  http://localhost:8901 || rc=1
-          AUDIT_ROOT=_site node .ci/audits/audit_nav.mjs    http://localhost:8901 || rc=1
-          rm -f package.json package-lock.json; rm -rf node_modules
-          exit $rc
-
+      # The browser audit suite used to run HERE, and it installed npm,
+      # playwright and Chromium with system deps on every single release. That
+      # was minutes of wall clock on the critical path of publishing a deal, and
+      # everything it reported (table wrapping, media fit, nav reachability) is
+      # layout class, which June Mode makes ADVISORY: a finding that creates no
+      # work. Paying a Chromium download to print findings nobody may act on is
+      # the definition of an unnecessary gate, and removing it was already on
+      # the 2026-08-18 retrospective's must-fix list (Glen, 2026-08-19).
+      #
+      # Coverage did not move to nothing, it moved to where it is actionable:
+      # the operator reviews the changed page at 390px and 1440px locally before
+      # release, and the audits still run in LAAA-AI-Prompts CI whenever the
+      # generator or template itself changes, which is when layout can actually
+      # regress. A deal repo only ever gets data, so a per-deal browser suite
+      # re-tested the template, not the deal.
+      #
+      # What stays here is every deterministic, fact-class check: approval
+      # binding, media publication, the site gate, artifact scope, and secrets.
+      # Those are the ones that block, they take seconds, and they need no
+      # browser.
       - uses: actions/upload-pages-artifact@v5
         if: github.event_name == 'workflow_dispatch'
         with:
