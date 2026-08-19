@@ -2834,7 +2834,15 @@
         "cap_rate": 5.31,
         "status": "in-escrow"
       }
-    ]
+    ],
+    "summary": {
+      "listings": 21,
+      "units": 278,
+      "asking_total": 94181000,
+      "blended_price_per_unit": 338781,
+      "median_cap_rate": 5.27,
+      "basis": "sums for units/price; blended $/unit = asking_total/units; median of listed cap rates"
+    }
   },
   "experience_claim": {
     "value": "45+",
