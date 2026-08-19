@@ -2842,7 +2842,8 @@
       "blended_price_per_unit": 338781,
       "median_cap_rate": 5.27,
       "basis": "sums for units/price; blended $/unit = asking_total/units; median of listed cap rates"
-    }
+    },
+    "link_pattern": "https://www.laaa.com/om/{slug} (all 21 verified 200 on 2026-08-19)"
   },
   "experience_claim": {
     "value": "45+",
