@@ -2635,5 +2635,201 @@
         "label": "not applicable to a portfolio-wide summary"
       }
     }
+  },
+  "active_listings": {
+    "source": "https://www.laaa.com/listings?type=multifamily",
+    "pulled": "2026-08-19T16:34:20+00:00",
+    "filter": "propertyType=Multifamily, status in (available, in-escrow)",
+    "rows": [
+      {
+        "street": "10455 Magnolia Blvd",
+        "city": "North Hollywood, CA",
+        "slug": "10455-magnolia",
+        "units": 26,
+        "asking_price": 9200000,
+        "cap_rate": 5.03,
+        "status": "available"
+      },
+      {
+        "street": "180 Holly Avenue",
+        "city": "Carpinteria, CA",
+        "slug": "180-holly",
+        "units": 19,
+        "asking_price": 8950000,
+        "cap_rate": 4.8,
+        "status": "available"
+      },
+      {
+        "street": "2727 3rd Street",
+        "city": "Santa Monica, CA",
+        "slug": "2727-3rd",
+        "units": 22,
+        "asking_price": 7650000,
+        "cap_rate": 5.16,
+        "status": "available"
+      },
+      {
+        "street": "31701 Ridge Route Rd",
+        "city": "Castaic, CA",
+        "slug": "31701-ridge-route",
+        "units": 33,
+        "asking_price": 7500000,
+        "cap_rate": 5.64,
+        "status": "available"
+      },
+      {
+        "street": "3607 Pacific Ave",
+        "city": "Marina del Rey, CA",
+        "slug": "3607-pacific",
+        "units": 6,
+        "asking_price": 5395000,
+        "cap_rate": 4.75,
+        "status": "available"
+      },
+      {
+        "street": "2001-2005 Grismer Avenue",
+        "city": "Burbank, CA",
+        "slug": "2001-2005-grismer",
+        "units": 14,
+        "asking_price": 5350000,
+        "cap_rate": 4.56,
+        "status": "available"
+      },
+      {
+        "street": "755 E Pine Street",
+        "city": "Altadena, CA",
+        "slug": "755-e-pine",
+        "units": 19,
+        "asking_price": 5195000,
+        "cap_rate": 6.68,
+        "status": "available"
+      },
+      {
+        "street": "7018 Alabama Ave",
+        "city": "Canoga Park, CA",
+        "slug": "7018-alabama",
+        "units": 9,
+        "asking_price": 5100000,
+        "cap_rate": 5.27,
+        "status": "available"
+      },
+      {
+        "street": "4603 La Mirada Avenue & 1255 Lyman Place",
+        "city": "Los Angeles, CA",
+        "slug": "4603-la-mirada-1255-lyman",
+        "units": 9,
+        "asking_price": 4450000,
+        "cap_rate": 5.28,
+        "status": "available"
+      },
+      {
+        "street": "24846 Walnut St",
+        "city": "Santa Clarita, CA",
+        "slug": "24846-walnut",
+        "units": 16,
+        "asking_price": 4200000,
+        "cap_rate": 5.13,
+        "status": "available"
+      },
+      {
+        "street": "12314 & 12320 Washington Pl",
+        "city": "Culver City, CA",
+        "slug": "12314-12320-washington",
+        "units": 8,
+        "asking_price": 3096000,
+        "cap_rate": 4.78,
+        "status": "available"
+      },
+      {
+        "street": "11025 Blix St",
+        "city": "Toluca Lake, CA",
+        "slug": "11025-blix",
+        "units": 4,
+        "asking_price": 2700000,
+        "cap_rate": 5.27,
+        "status": "available"
+      },
+      {
+        "street": "1303-1305 Laveta Terrace",
+        "city": "Los Angeles, CA",
+        "slug": "laveta",
+        "units": 10,
+        "asking_price": 2590000,
+        "cap_rate": 4.24,
+        "status": "available"
+      },
+      {
+        "street": "1807 Montana Street",
+        "city": "Los Angeles, CA",
+        "slug": "1807-montana",
+        "units": 4,
+        "asking_price": 2395000,
+        "cap_rate": 5.84,
+        "status": "available"
+      },
+      {
+        "street": "5614 W Adams Blvd",
+        "city": "Los Angeles, CA",
+        "slug": "5614-w-adams",
+        "units": 7,
+        "asking_price": 1795000,
+        "cap_rate": 6.52,
+        "status": "available"
+      },
+      {
+        "street": "24513-24519 Walnut St",
+        "city": "Santa Clarita, CA",
+        "slug": "24513-24519-walnut",
+        "units": 3,
+        "asking_price": 1095000,
+        "cap_rate": 4.31,
+        "status": "available"
+      },
+      {
+        "street": "20234 Roscoe Blvd",
+        "city": "Winnetka, CA",
+        "slug": "20234-roscoe",
+        "units": 25,
+        "asking_price": 4750000,
+        "cap_rate": 5.51,
+        "status": "in-escrow"
+      },
+      {
+        "street": "10814-10818 Blix St",
+        "city": "North Hollywood, CA",
+        "slug": "10814-blix",
+        "units": 18,
+        "asking_price": 4495000,
+        "cap_rate": 6.24,
+        "status": "in-escrow"
+      },
+      {
+        "street": "13915 Sherman Way",
+        "city": "Van Nuys, CA",
+        "slug": "13915-sherman-way",
+        "units": 15,
+        "asking_price": 3750000,
+        "cap_rate": 5.8,
+        "status": "in-escrow"
+      },
+      {
+        "street": "3361 Hamilton Way",
+        "city": "Los Angeles, CA",
+        "slug": "3361-hamilton",
+        "units": 4,
+        "asking_price": 2800000,
+        "cap_rate": 5.62,
+        "status": "in-escrow"
+      },
+      {
+        "street": "24802 & 24806 Walnut St",
+        "city": "Santa Clarita, CA",
+        "slug": "24802-24806-walnut",
+        "units": 7,
+        "asking_price": 1725000,
+        "cap_rate": 5.31,
+        "status": "in-escrow"
+      }
+    ]
   }
 }
