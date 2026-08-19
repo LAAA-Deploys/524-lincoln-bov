@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="laaa-figures-pulled" content="2026-08-19T23:10:09+00:00">
+<meta name="laaa-figures-pulled" content="2026-08-19T23:34:30+00:00">
 <meta name="description" content="10-Unit Multifamily Investment - Pasadena, CA 91103 | LAAA Team - Marcus &amp; Millichap">
 <meta property="og:title" content="Broker Opinion of Value - 524 Lincoln Ave">
 <meta property="og:description" content="10-Unit Multifamily Investment - Pasadena, CA 91103 | LAAA Team - Marcus &amp; Millichap">
@@ -112,26 +112,42 @@ td.num, th.num { text-align: right; }
 .tr-proof-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #6B7280; margin-top: 6px; }
 .tr-proof-source { font-size: 11px; color: #6B7280; margin-bottom: 20px; }
 .tr-proof-source a { color: #1B3A5C; }
-/* Bio card role kicker and inline contacts (Glen 2026-08-19, East Palmdale
-   treatment): the person's number sits with their bio instead of only in the
-   footer. */
-.bio-kicker { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #C5A258; margin-bottom: 4px; }
-.bio-contact { font-size: 12px; line-height: 1.7; color: #6B7280; margin-top: 8px; }
-.bio-contact a { color: #1B3A5C; text-decoration: none; }
-.bio-contact a:hover { text-decoration: underline; }
 .tr-service-quote { margin: 24px 0; }
 .tr-service-quote h3 { font-size: 20px; font-weight: 400; color: #1B3A5C; margin-bottom: 12px; font-family: 'DM Serif Display', serif; }
 .tr-service-quote p { font-size: 14px; line-height: 1.7; }
 .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0; }
 .bio-card { display: flex; gap: 16px; align-items: flex-start; }
 .bio-headshot { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #C5A258; object-fit: cover; flex-shrink: 0; }
+/* Deal-lead cards (Glen 2026-08-19, East Palmdale treatment). Grid areas are
+   the point: the portrait photo spans the whole card beside the text on
+   desktop, but on a phone it spans ONLY the kicker/name/title header and the
+   bio continues full width below it. East Palmdale kept the desktop layout on
+   phones and left a dead white block under the photo. .bio-* stays untouched
+   above because the portfolio hub's property cards share those classes. */
+.lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+/* An odd lead count leaves the last card orphaned beside a white void, so it
+   spans the row instead, the way East Palmdale runs its full-width cards. */
+.lead-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.lead-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); grid-template-rows: auto auto auto; grid-template-areas: "photo head" "photo bio" "photo contact"; column-gap: 20px; align-content: start; background: #fff; border: 1px solid #e5e9f0; border-radius: 12px; padding: 20px; box-shadow: 0 1px 6px rgba(27,58,92,0.06); }
+.lead-photo { grid-area: photo; width: 150px; height: 178px; border-radius: 10px; object-fit: cover; object-position: top; background: #f0f4f8; }
+.lead-head { grid-area: head; }
+.lead-kicker { font-size: 10px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: #C5A258; margin-bottom: 6px; }
+.lead-name { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.15; color: #1B3A5C; }
+.lead-title { font-size: 12px; font-weight: 700; color: #C5A258; margin-top: 4px; }
+.lead-bio { grid-area: bio; font-size: 13px; line-height: 1.6; color: #374151; margin-top: 10px; }
+.lead-contact { grid-area: contact; font-size: 12px; line-height: 1.7; color: #6B7280; margin-top: 10px; }
+.lead-contact a { color: #1B3A5C; text-decoration: none; }
+.lead-contact a:hover { text-decoration: underline; }
 .bio-name { font-size: 17px; font-weight: 400; color: #1B3A5C; font-family: 'DM Serif Display', serif; }
 .bio-title { font-size: 11px; color: #C5A258; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
 .bio-text { font-size: 13px; line-height: 1.6; color: #444; }
-.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
-.team-card { text-align: center; padding: 8px; }
-.team-headshot { width: 64px; height: 64px; border-radius: 50%; border: 2px solid #C5A258; object-fit: cover; margin: 0 auto 6px; display: block; }
-.team-card-name { font-size: 13px; font-weight: 700; color: #1B3A5C; }
+/* Full-team grid (Glen 2026-08-19): square portrait cards instead of 64px
+   circles, which read as postage stamps on desktop. The photo fills the
+   column, so the cards scale with the viewport instead of staying tiny. */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 24px 0; }
+.team-card { text-align: center; }
+.team-headshot { width: 100%; aspect-ratio: 1 / 1; height: auto; border-radius: 10px; object-fit: cover; object-position: top; background: #f0f4f8; margin: 0 0 8px; display: block; }
+.team-card-name { font-size: 14px; font-weight: 700; color: #1B3A5C; }
 .team-card-title { font-size: 10px; color: #C5A258; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 .costar-badge { text-align: center; background: #FFF8E7; border: 2px solid #C5A258; border-radius: 8px; padding: 20px 24px; margin: 24px auto; max-width: 640px; }
 .costar-badge-title { font-size: 22px; font-weight: 400; color: #1B3A5C; font-family: 'DM Serif Display', serif; }
@@ -272,7 +288,16 @@ td.num, th.num { text-align: right; }
   .tr-closings-figure { order: -1; }
   .summary-two-col, .prop-grid-4 { grid-template-columns: 1fr; }
   .bio-grid { grid-template-columns: 1fr; gap: 16px; }
-  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  /* Photo spans only the header row here; bio and contacts continue full
+     width beneath it. This is the East Palmdale mobile dead-space fix. */
+  .lead-grid { grid-template-columns: 1fr; gap: 14px; }
+  .lead-card { grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "photo head" "bio bio" "contact contact"; column-gap: 14px; padding: 16px; }
+  .lead-photo { width: 96px; height: 114px; }
+  .lead-head { align-self: center; }
+  .lead-name { font-size: 19px; }
+  .lead-bio { margin-top: 12px; }
+  .lead-contact { margin-top: 8px; }
+  .team-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .footer-team { flex-direction: column; align-items: center; gap: 30px; }
   .embed-map-wrap iframe { height: 320px; }
   .slide-stage { height: 300px; } .slide-thumbs img { width: 76px; height: 50px; }
@@ -484,8 +509,8 @@ td.num, th.num { text-align: right; }
 
 <div class="section tr-page2">
   <div style="text-align:center;"><div class="section-title" style="margin-bottom:4px;">The Team Behind the Assignment</div><div class="section-divider" style="margin:0 auto 16px;"></div></div>
-  <div class="bio-grid"><div class="bio-card"><img class="bio-headshot" src="images/headshot_filip-niculete.jpg" alt="Filip Niculete"><div><div class="bio-name">Filip Niculete</div><div class="bio-title">Senior Managing Director Investments</div><div class="bio-text"></div><div class="bio-contact"><a href="tel:8182122748">(818) 212-2748</a><br><a href="mailto:Filip.Niculete@marcusmillichap.com">Filip.Niculete@marcusmillichap.com</a><br>CA License: 01905352</div></div></div><div class="bio-card"><img class="bio-headshot" src="images/headshot_morgan-wetmore.jpg" alt="Morgan Wetmore"><div><div class="bio-name">Morgan Wetmore</div><div class="bio-title">Associate</div><div class="bio-text"></div><div class="bio-contact"><a href="tel:8182122724">(818) 212-2724</a><br><a href="mailto:Morgan.Wetmore@marcusmillichap.com">Morgan.Wetmore@marcusmillichap.com</a><br>CA License: 02209935</div></div></div><div class="bio-card"><img class="bio-headshot" src="images/headshot_glen-scher.jpg" alt="Glen Scher"><div><div class="bio-name">Glen Scher</div><div class="bio-title">Senior Managing Director Investments</div><div class="bio-text"></div><div class="bio-contact"><a href="tel:8182122808">(818) 212-2808</a><br><a href="mailto:Glen.Scher@marcusmillichap.com">Glen.Scher@marcusmillichap.com</a><br>CA License: 01962976</div></div></div></div>
-  <div class="team-grid"><div class="team-card"><img class="team-headshot" src="images/roster_aida-memary-scher.jpg" alt="Aida Memary"><div class="team-card-name">Aida Memary</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_logan-ward.jpg" alt="Logan Ward"><div class="team-card-name">Logan Ward</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_luka-leader.jpg" alt="Luka Leader"><div class="team-card-name">Luka Leader</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_alexandro-tapia.jpg" alt="Alexandro Tapia"><div class="team-card-name">Alexandro Tapia</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_blake-lewitt.jpg" alt="Blake Lewitt"><div class="team-card-name">Blake Lewitt</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_mike-palade.jpg" alt="Mike Palade"><div class="team-card-name">Mike Palade</div><div class="team-card-title">Agent Assistant</div></div><div class="team-card"><img class="team-headshot" src="images/roster_tony-dang.jpg" alt="Tony H. Dang"><div class="team-card-name">Tony H. Dang</div><div class="team-card-title">Business Operations Manager</div></div><div class="team-card"><img class="team-headshot" src="images/roster_tirajeh-vossoughi-horton.jpg" alt="Tirajeh Vossoughi-Horton"><div class="team-card-name">Tirajeh Vossoughi-Horton</div><div class="team-card-title">Investment Brokerage Intern</div></div></div>
+  <div class="lead-grid"><div class="lead-card"><img class="lead-photo" src="images/headshot_filip-niculete.jpg" alt="Filip Niculete"><div class="lead-head"><div class="lead-kicker">Principal</div><div class="lead-name">Filip Niculete</div><div class="lead-title">Senior Managing Director Investments</div></div><div class="lead-bio">Filip Niculete co-leads LA Apartment Advisors with a focus on disciplined marketing, buyer coverage and closing certainty on multifamily assignments.</div><div class="lead-contact"><a href="tel:8182122748">(818) 212-2748</a><br><a href="mailto:Filip.Niculete@marcusmillichap.com">Filip.Niculete@marcusmillichap.com</a><br>CA License: 01905352</div></div><div class="lead-card"><img class="lead-photo" src="images/headshot_morgan-wetmore.jpg" alt="Morgan Wetmore"><div class="lead-head"><div class="lead-kicker">Assignment Team</div><div class="lead-name">Morgan Wetmore</div><div class="lead-title">Associate</div></div><div class="lead-bio">Morgan Wetmore supports the assignment on underwriting and marketing coordination.</div><div class="lead-contact"><a href="tel:8182122724">(818) 212-2724</a><br><a href="mailto:Morgan.Wetmore@marcusmillichap.com">Morgan.Wetmore@marcusmillichap.com</a><br>CA License: 02209935</div></div><div class="lead-card"><img class="lead-photo" src="images/headshot_glen-scher.jpg" alt="Glen Scher"><div class="lead-head"><div class="lead-kicker">Principal</div><div class="lead-name">Glen Scher</div><div class="lead-title">Senior Managing Director Investments</div></div><div class="lead-bio">Glen Scher co-leads LA Apartment Advisors and advises apartment owners across Los Angeles County on pricing, positioning and execution.</div><div class="lead-contact"><a href="tel:8182122808">(818) 212-2808</a><br><a href="mailto:Glen.Scher@marcusmillichap.com">Glen.Scher@marcusmillichap.com</a><br>CA License: 01962976</div></div></div>
+  <div class="team-grid"><div class="team-card"><img class="team-headshot" src="images/roster_aida-memary-scher.jpg" alt="Aida Memary" loading="lazy"><div class="team-card-name">Aida Memary</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_logan-ward.jpg" alt="Logan Ward" loading="lazy"><div class="team-card-name">Logan Ward</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_luka-leader.jpg" alt="Luka Leader" loading="lazy"><div class="team-card-name">Luka Leader</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_alexandro-tapia.jpg" alt="Alexandro Tapia" loading="lazy"><div class="team-card-name">Alexandro Tapia</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_blake-lewitt.jpg" alt="Blake Lewitt" loading="lazy"><div class="team-card-name">Blake Lewitt</div><div class="team-card-title">Associate, Investments</div></div><div class="team-card"><img class="team-headshot" src="images/roster_mike-palade.jpg" alt="Mike Palade" loading="lazy"><div class="team-card-name">Mike Palade</div><div class="team-card-title">Agent Assistant</div></div><div class="team-card"><img class="team-headshot" src="images/roster_tony-dang.jpg" alt="Tony H. Dang" loading="lazy"><div class="team-card-name">Tony H. Dang</div><div class="team-card-title">Business Operations Manager</div></div><div class="team-card"><img class="team-headshot" src="images/roster_tirajeh-vossoughi-horton.jpg" alt="Tirajeh Vossoughi-Horton" loading="lazy"><div class="team-card-name">Tirajeh Vossoughi-Horton</div><div class="team-card-title">Investment Brokerage Intern</div></div></div>
   <div class="condition-note"><div class="condition-note-label">Key Achievements</div>
     <p class="achievements-list">
       &bull; <strong>Chairman&#x27;s Club</strong> - Marcus &amp; Millichap&#x27;s top-tier annual honor<br>

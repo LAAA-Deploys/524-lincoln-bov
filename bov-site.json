@@ -22,7 +22,8 @@
         "email": "Filip.Niculete@marcusmillichap.com",
         "license": "CA License: 01905352",
         "headshot": "images/headshot_filip-niculete.jpg",
-        "bio": ""
+        "bio": "Filip Niculete co-leads LA Apartment Advisors with a focus on disciplined marketing, buyer coverage and closing certainty on multifamily assignments.",
+        "role_kicker": "Principal"
       },
       {
         "name": "Morgan Wetmore",
@@ -32,7 +33,8 @@
         "email": "Morgan.Wetmore@marcusmillichap.com",
         "license": "CA License: 02209935",
         "headshot": "images/headshot_morgan-wetmore.jpg",
-        "bio": ""
+        "bio": "Morgan Wetmore supports the assignment on underwriting and marketing coordination.",
+        "role_kicker": "Assignment Team"
       },
       {
         "name": "Glen Scher",
@@ -42,7 +44,8 @@
         "email": "Glen.Scher@marcusmillichap.com",
         "license": "CA License: 01962976",
         "headshot": "images/headshot_glen-scher.jpg",
-        "bio": ""
+        "bio": "Glen Scher co-leads LA Apartment Advisors and advises apartment owners across Los Angeles County on pricing, positioning and execution.",
+        "role_kicker": "Principal"
       }
     ],
     "grid": [
@@ -2850,7 +2853,7 @@
   "approval_binding": {
     "deal_id": "524-lincoln-ave-pasadena",
     "domains": {
-      "identity": "1bb9aa32bd473fff7c12b801f9a9b06a31a11120b2703b3ea684017a4ba646a1",
+      "identity": "a89e1fd6514a2d20fb24eb1316c2c8fb2a3efea69cfa917a186fae9cacaec5da",
       "financial_inputs": "23e98ee82218c5c56db425e3a038f65aeb5d0a2f875d946600937da00927d961",
       "pricing_decision": "6682b90a49e0e0fce54e989172ffb9a6370c447507eb44918740dfa6e3fecdd5",
       "sale_comps": "624dccd5cc8d9535fe41575cf61d400d33dd946941bf68023dc064eea11ca5c6",
@@ -2860,7 +2863,7 @@
       "regulatory_conclusions": "abd49f70027cc453b1e5e6841d10613e839b1ff7f23c3e956adea872cf02d0f3"
     },
     "presentation_hashes": {
-      "identity": "6adfac190ddd5132ad3a70eb49c1c243c28a5e9cfd1606df56e371cec8f79dc9",
+      "identity": "95e4fb27413ba89fe9d894bdd5e1eca7c89aaae1c1712efe03bbbc6598b376db",
       "financial_inputs": "3ab4741d184377d6c967676688362f65e9a8b28c5a714e5a80ac16ba4db9c8d0",
       "pricing_decision": "acf4d333b3e3a9e799bc213ebe3125202e84914a2182fffd3e6af642b92346ae",
       "sale_comps": "c09cfcbedcf1a8ec73ce97f6248ecc571feb06d2b1d301e7baf05e76786e04cf",
@@ -2872,7 +2875,7 @@
   },
   "stats": {
     "live": true,
-    "generated": "2026-08-19T23:10:09+00:00",
+    "generated": "2026-08-19T23:34:30+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
