@@ -77,6 +77,13 @@ def _deal_presentation_projection(presentation: dict[str, Any]) -> dict[str, Any
     group = presentation.get("track_record_submarkets")
     if group is not None:
         projection["track_record_submarkets"] = group
+    # Same rule for the Active Listings toggle: it adds or removes an entire
+    # client-facing section, so flipping it must invalidate the identity
+    # domain and reopen the lead's approval (Codex review on PR #169).
+    # Added only when present, for the reason documented above.
+    show_listings = presentation.get("show_active_listings")
+    if show_listings is not None:
+        projection["show_active_listings"] = show_listings
     return projection
 
 

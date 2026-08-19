@@ -184,6 +184,23 @@
     "images/maps-524-lincoln-sale-comps.png": "2964483a470717af370c19b21b1c0d624a6dfcb8e0cb7c7d1ed859b4bf5ddc8c",
     "images/maps-524-lincoln-sale-comps-tall.png": "6dede05b6bb939a0b87c56d4e36caa2ba30c6db9bb41daf6d85ae925a4ae7d05",
     "images/maps-524-lincoln-rent-comps.png": "df8651fd6052b86ee1667ff01612eb58722f779a3cea5aa5b10dc96adb73962b",
-    "images/maps-524-lincoln-rent-comps-tall.png": "eabb1c5774e1cc3965202e8fee3b333512f4cc70edadd6df7809a9bf6f85c189"
+    "images/maps-524-lincoln-rent-comps-tall.png": "eabb1c5774e1cc3965202e8fee3b333512f4cc70edadd6df7809a9bf6f85c189",
+    "images/maps-524-lincoln-closings.png": "6232c3cae92e29d6a4d72333fd208b55311ac6092cfa64d72c49c1bdd0b6a64a"
+  },
+  "closings": {
+    "524-lincoln": {
+      "source": "https://www.laaa.com/track-record",
+      "pulled": "2026-08-19T20:32:38+00:00",
+      "basis": {
+        "type": "radius",
+        "label": "within 2 miles",
+        "radius_mi": 2
+      },
+      "apartment_sales": 14,
+      "other_closings": 3,
+      "apartment_markers": 11,
+      "other_markers": 3,
+      "render": "images/maps-524-lincoln-closings.png"
+    }
   }
 }

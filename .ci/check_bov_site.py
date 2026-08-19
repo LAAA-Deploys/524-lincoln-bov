@@ -117,7 +117,8 @@ MAX_FIGURE_AGE_HOURS = 168
 VALIDATED_SHA_ENV = "BOV_VALIDATED_SHA"
 
 REQUIRED_FILES = ["index.html", "CNAME", ".nojekyll", "og.jpg"]
-SECTION_ORDER = ["track-record", "marketing", "property-info", "investment", "location",
+SECTION_ORDER = ["track-record", "marketing", "active-listings", "property-info",
+                 "investment", "location",
                  "prop-details", "photos", "rent-comps", "sale-comps",
                  "opinion-of-value", "on-market",
                  "financials", "contact"]
@@ -213,23 +214,48 @@ def local_image_path(site, page, ref, domain):
     return (page.parent / relative).resolve()
 
 
-def price_scan_markup(html):
-    """Return pre-reveal markup except the calibrated Buyer Profile carve-out."""
-    head = html.split('id="sale-comps"')[0]
-    marker = 'id="property-info"'
-    allowed_at = head.find(marker)
-    if allowed_at < 0:
-        return head
+#: Sections exempt from the pre-reveal price scan, each for a documented
+#: structural reason and nothing else. Buyer Profile: Camarillo quotes the
+#: price inside a buyer-objection answer BY DESIGN, so it is allowed there and
+#: nowhere else before the reveal. Our Active Multifamily Listings: the table
+#: carries OTHER properties' asking prices pulled live from laaa.com, and one
+#: of them matching the subject's formatted price to the dollar must not fail
+#: the build; the subject's own row is excluded from the feed by sections.py,
+#: so the subject's valuation never renders there. Team Track Record: the
+#: representative local closings are OTHER buildings' recorded SALE prices from
+#: the public track-record feed, and one of LAAA's own past closings happening
+#: to have closed at the subject's asking price to the dollar must not fail a
+#: build. Nothing in that section renders the subject's valuation: every figure
+#: in it is a closed transaction from laaa.com, never a number about this deal.
+PRICE_SCAN_EXEMPT = ("track-record", "property-info", "active-listings")
 
-    # Only Buyer Profile is exempt. Resume at Investment Overview so every
-    # later pre-sale-comps section remains inside the price-discipline scan.
-    later = []
-    for section in SECTION_ORDER[SECTION_ORDER.index("property-info") + 1:]:
-        position = head.find(f'id="{section}"', allowed_at + len(marker))
-        if position >= 0:
-            later.append(position)
-    resume_at = min(later) if later else len(head)
-    return head[:allowed_at] + head[resume_at:]
+
+def price_scan_markup(html):
+    """Return pre-reveal markup except the calibrated section carve-outs."""
+    head = html.split('id="sale-comps"')[0]
+
+    spans = []
+    for exempt in PRICE_SCAN_EXEMPT:
+        start = head.find(f'id="{exempt}"')
+        if start < 0:
+            continue
+        # Resume at the next locked section that renders after this one, so
+        # every other pre-sale-comps section stays inside the scan.
+        later = [
+            position
+            for section in SECTION_ORDER
+            if section != exempt
+            for position in [head.find(f'id="{section}"', start + 1)]
+            if position >= 0
+        ]
+        spans.append((start, min(later) if later else len(head)))
+
+    kept, cursor = [], 0
+    for start, end in sorted(spans):
+        kept.append(head[cursor:max(cursor, start)])
+        cursor = max(cursor, end)
+    kept.append(head[cursor:])
+    return "".join(kept)
 
 
 #: Labelled containers that must never render without content. Each is a
@@ -637,6 +663,15 @@ def main(site):
 #   financial     price, cap, GRM, $/unit, $/SF correctness.
 #   secrets       an API key or credential reaching emitted HTML.
 #   required      a required file missing from the shipped artifact.
+#   maps          a certified render whose deployed bytes fail digest
+#                 re-verification, or a manifest that cannot certify them.
+#                 A tampered or uncertifiable pin is a wrong public fact
+#                 (the 3837 College 33m street pin), and the whole point of
+#                 check_certified_map_renders is catching bytes changed AFTER
+#                 the build gates ran. Every refusal it emits names
+#                 map-manifest.json, which is what the pattern matches. The
+#                 original June Mode split missed this class, so the gate
+#                 printed the tamper finding as advisory and exited 0.
 # Everything else (fonts, colors, section order, nav, spacing, copy, image
 # dimensions) reports and continues.
 _BLOCKING_PATTERNS = (
@@ -646,6 +681,7 @@ _BLOCKING_PATTERNS = (
     "price", "cap rate", "grm", "$/unit", "$/sf", "per unit", "per sf",
     "api key", "credential", "secret", "token",
     "missing", "not found", "required file", "absent",
+    "map-manifest",
 )
 
 

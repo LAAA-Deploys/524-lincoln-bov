@@ -3,28 +3,28 @@
   "scope": "deal",
   "deal_id": "524-lincoln-ave-pasadena",
   "portfolio_id": null,
-  "package_version": "v2",
-  "approved_at": "2026-08-18T20:58:26.059200+00:00",
+  "package_version": "v6",
+  "approved_at": "2026-08-19T20:53:48.097060+00:00",
   "approver": "Glen Scher",
   "price": {
-    "value": 3030000
+    "value": 2840000
   },
   "approved_exception_ids": [],
   "domains": {
     "copy": {
-      "content_sha256": "ca217c4f03f9eee4a3138dbfb98efa0f865633340e31941dd6c5899b5aa5daeb"
+      "content_sha256": "65686c759c0d7e2002159278e013af1981f5dca06219fd7939751759e70354a0"
     },
     "financial_inputs": {
-      "content_sha256": "b99f41070ae50626810057835781c58ef440c7a595091d3233922728deffd2dd"
+      "content_sha256": "23e98ee82218c5c56db425e3a038f65aeb5d0a2f875d946600937da00927d961"
     },
     "identity": {
-      "content_sha256": "ac3685a2e3728eb603c202ba27fb053e2aa17e15710f07ae4a7bba1d7ab3c70f"
+      "content_sha256": "1bb9aa32bd473fff7c12b801f9a9b06a31a11120b2703b3ea684017a4ba646a1"
     },
     "media_selection": {
       "content_sha256": "559cedd9f76f8e75e88c0773fc09daec4e58dde3ca4729189d4ebcde3de63804"
     },
     "pricing_decision": {
-      "content_sha256": "6b00e2885d1b76842aba4765d8a7942e793fdcbb90219bdb58839406d5d6077a"
+      "content_sha256": "6682b90a49e0e0fce54e989172ffb9a6370c447507eb44918740dfa6e3fecdd5"
     },
     "regulatory_conclusions": {
       "content_sha256": "abd49f70027cc453b1e5e6841d10613e839b1ff7f23c3e956adea872cf02d0f3"

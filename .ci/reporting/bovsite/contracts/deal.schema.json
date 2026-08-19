@@ -85,7 +85,8 @@
         "team": {"$ref": "#/$defs/team"},
         "maps": {"type": "object", "additionalProperties": false, "properties": {"subject": {"type": ["string", "null"]}, "sale": {"type": ["string", "null"]}, "rent": {"type": ["string", "null"]}, "active": {"type": ["string", "null"]}}},
         "no_photo_cover": {"type": ["string", "null"]},
-        "hero_tall": {"type": ["string", "null"]}
+        "hero_tall": {"type": ["string", "null"]},
+        "show_active_listings": {"type": "boolean"}
       }
     },
     "regulatory_conclusions": {

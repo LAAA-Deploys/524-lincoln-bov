@@ -913,6 +913,7 @@ def build_payload(workspace: DealWorkspace) -> dict:
     property_payload = {
         "slug": deal["slug"],
         "short_name": presentation["short_name"],
+        "show_active_listings": bool(presentation.get("show_active_listings")),
         "address": deal["primary_address"],
         "city": presentation["city"],
         "submarket": presentation["submarket"],

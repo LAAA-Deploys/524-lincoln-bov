@@ -141,10 +141,6 @@
       [
         "{apt_units}",
         "Apartment Units Sold"
-      ],
-      [
-        "45+",
-        "Combined Years of Experience"
       ]
     ],
     "narrative": [
@@ -213,6 +209,7 @@
     {
       "slug": "524-lincoln",
       "short_name": "524 Lincoln Ave",
+      "show_active_listings": true,
       "address": "524 Lincoln Ave",
       "city": "Pasadena, CA 91103",
       "submarket": "Northwest Pasadena",
@@ -920,6 +917,49 @@
           "type": "radius",
           "label": "within 2 miles",
           "radius_mi": 2
+        },
+        "representative": [
+          {
+            "address": "934 N Lake Ave",
+            "submarket": "Pasadena",
+            "units": 6,
+            "price": 1433000,
+            "price_per_unit": 238833,
+            "year": "2021",
+            "distance": 1.33
+          },
+          {
+            "address": "827 E Washington",
+            "submarket": "Pasadena",
+            "units": 8,
+            "price": 2400000,
+            "price_per_unit": 300000,
+            "year": "2020",
+            "distance": 1.55
+          },
+          {
+            "address": "759 N Raymond Ave",
+            "submarket": "Pasadena",
+            "units": 5,
+            "price": 1050000,
+            "price_per_unit": 210000,
+            "year": "2019",
+            "distance": 0.39
+          }
+        ],
+        "closings_map": {
+          "source": "https://www.laaa.com/track-record",
+          "pulled": "2026-08-19T20:32:38+00:00",
+          "basis": {
+            "type": "radius",
+            "label": "within 2 miles",
+            "radius_mi": 2
+          },
+          "apartment_sales": 14,
+          "other_closings": 3,
+          "apartment_markers": 11,
+          "other_markers": 3,
+          "render": "images/maps-524-lincoln-closings.png"
         }
       }
     }
@@ -1059,8 +1099,8 @@
         },
         "financial_analysis": {
           "valuation_narrative": [
-            "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.02% current cap rate and 10.97 GRM, improving to a 6.26% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
-            "At $303,000 per unit the price sits above the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.02% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings are what carry that position.",
+            "The recommended list price is $2,840,000, within a supported range of $2.75M to $2.95M. On the ten units with the four vacant units at asking rents, the price reflects a 6.50% current cap rate and 10.28 GRM, improving to a 6.76% cap rate at underwritten market rents on turnover. With occupied rents already within about 3% of underwritten market levels, the price is set on day-one yield rather than projected upside. Real estate taxes are underwritten at reassessment on the list price.",
+            "At $284,000 per unit the price sits in the upper half of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.50% day-one yield at the top of the 5.17% to 6.52% band on older, un-upgraded buildings are what carry that position.",
             "The lease-up of the four vacant units is the primary execution item; at asking rents they represent $112,800 of the $276,240 annual scheduled gross income."
           ],
           "disclosures": [
@@ -1562,7 +1602,7 @@
             "pricing:decision"
           ],
           "framed_as": null,
-          "text": "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.02% current cap rate and 10.97 GRM, improving to a 6.26% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price."
+          "text": "The recommended list price is $2,840,000, within a supported range of $2.75M to $2.95M. On the ten units with the four vacant units at asking rents, the price reflects a 6.50% current cap rate and 10.28 GRM, improving to a 6.76% cap rate at underwritten market rents on turnover. With occupied rents already within about 3% of underwritten market levels, the price is set on day-one yield rather than projected upside. Real estate taxes are underwritten at reassessment on the list price."
         },
         {
           "id": "valuation-2",
@@ -1571,7 +1611,7 @@
             "comps-sale:conclusions"
           ],
           "framed_as": "broker opinion of value",
-          "text": "At $303,000 per unit the price sits above the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.02% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings are what carry that position."
+          "text": "At $284,000 per unit the price sits in the upper half of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.50% day-one yield at the top of the 5.17% to 6.52% band on older, un-upgraded buildings are what carry that position."
         },
         {
           "id": "valuation-3",
@@ -1767,8 +1807,8 @@
         },
         "financial_analysis": {
           "valuation_narrative": [
-            "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.02% current cap rate and 10.97 GRM, improving to a 6.26% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price.",
-            "At $303,000 per unit the price sits above the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.02% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings are what carry that position.",
+            "The recommended list price is $2,840,000, within a supported range of $2.75M to $2.95M. On the ten units with the four vacant units at asking rents, the price reflects a 6.50% current cap rate and 10.28 GRM, improving to a 6.76% cap rate at underwritten market rents on turnover. With occupied rents already within about 3% of underwritten market levels, the price is set on day-one yield rather than projected upside. Real estate taxes are underwritten at reassessment on the list price.",
+            "At $284,000 per unit the price sits in the upper half of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.50% day-one yield at the top of the 5.17% to 6.52% band on older, un-upgraded buildings are what carry that position.",
             "The lease-up of the four vacant units is the primary execution item; at asking rents they represent $112,800 of the $276,240 annual scheduled gross income."
           ],
           "disclosures": [
@@ -2270,7 +2310,7 @@
             "pricing:decision"
           ],
           "framed_as": null,
-          "text": "The recommended list price is $3,030,000, within a supported range of $2.95M to $3.15M. On the ten units with the four vacant units at asking rents, the price reflects a 6.02% current cap rate and 10.97 GRM, improving to a 6.26% cap rate at underwritten market rents on turnover. Real estate taxes are underwritten at reassessment on the list price."
+          "text": "The recommended list price is $2,840,000, within a supported range of $2.75M to $2.95M. On the ten units with the four vacant units at asking rents, the price reflects a 6.50% current cap rate and 10.28 GRM, improving to a 6.76% cap rate at underwritten market rents on turnover. With occupied rents already within about 3% of underwritten market levels, the price is set on day-one yield rather than projected upside. Real estate taxes are underwritten at reassessment on the list price."
         },
         {
           "id": "valuation-2",
@@ -2279,7 +2319,7 @@
             "comps-sale:conclusions"
           ],
           "framed_as": "broker opinion of value",
-          "text": "At $303,000 per unit the price sits above the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.02% day-one yield against comparable sales trading between 5.17% and 6.52% on older, un-upgraded buildings are what carry that position."
+          "text": "At $284,000 per unit the price sits in the upper half of the $217,000 to $300,000 per unit range set by the comparable sales, every one of which is unrenovated 1920s through 1960s product. The 2025 renovation, the two new-construction ADUs, and a 6.50% day-one yield at the top of the 5.17% to 6.52% band on older, un-upgraded buildings are what carry that position."
         },
         {
           "id": "valuation-3",
@@ -2580,29 +2620,29 @@
   "approval_binding": {
     "deal_id": "524-lincoln-ave-pasadena",
     "domains": {
-      "identity": "ac3685a2e3728eb603c202ba27fb053e2aa17e15710f07ae4a7bba1d7ab3c70f",
-      "financial_inputs": "b99f41070ae50626810057835781c58ef440c7a595091d3233922728deffd2dd",
-      "pricing_decision": "6b00e2885d1b76842aba4765d8a7942e793fdcbb90219bdb58839406d5d6077a",
+      "identity": "1bb9aa32bd473fff7c12b801f9a9b06a31a11120b2703b3ea684017a4ba646a1",
+      "financial_inputs": "23e98ee82218c5c56db425e3a038f65aeb5d0a2f875d946600937da00927d961",
+      "pricing_decision": "6682b90a49e0e0fce54e989172ffb9a6370c447507eb44918740dfa6e3fecdd5",
       "sale_comps": "624dccd5cc8d9535fe41575cf61d400d33dd946941bf68023dc064eea11ca5c6",
       "rent_comps": "5a5174161f89cf5c17a89760cb8ef3d89faa9c2b0cf8f2834e0a444e359c9e7f",
-      "copy": "ca217c4f03f9eee4a3138dbfb98efa0f865633340e31941dd6c5899b5aa5daeb",
+      "copy": "65686c759c0d7e2002159278e013af1981f5dca06219fd7939751759e70354a0",
       "media_selection": "559cedd9f76f8e75e88c0773fc09daec4e58dde3ca4729189d4ebcde3de63804",
       "regulatory_conclusions": "abd49f70027cc453b1e5e6841d10613e839b1ff7f23c3e956adea872cf02d0f3"
     },
     "presentation_hashes": {
-      "identity": "1cae0c73dfad688f03e6da8306ec095b8f088bc50565eeb02caaa9ffd140ca0d",
-      "financial_inputs": "051165a1b1d2e36c463c63c8fccd2fd590b12757f375efe6956be6f948701d5e",
-      "pricing_decision": "9f972777b99a3d9245c4ee7c5e81fb1a94016326441575a85fbfc2583179f666",
+      "identity": "6adfac190ddd5132ad3a70eb49c1c243c28a5e9cfd1606df56e371cec8f79dc9",
+      "financial_inputs": "3ab4741d184377d6c967676688362f65e9a8b28c5a714e5a80ac16ba4db9c8d0",
+      "pricing_decision": "acf4d333b3e3a9e799bc213ebe3125202e84914a2182fffd3e6af642b92346ae",
       "sale_comps": "c09cfcbedcf1a8ec73ce97f6248ecc571feb06d2b1d301e7baf05e76786e04cf",
       "rent_comps": "2083e6488114224958bc9b0d2002305943951d47fd0d42ee30ccf9c7287e2955",
-      "copy": "0213207814d71a618d4eff13d86cf25582316c1c0b3524082052d3bb218b97d8",
+      "copy": "2eda6f34936d4d309e8b0cc608f545a8e40bd5db786c4176c8bd0eb6aec76661",
       "media_selection": "e73b021894c08db95aee5dcaa58597b66479f93570037b75d6b8fd767381c09c",
       "regulatory_conclusions": "d059b0772b4eb9df59d7cbfac07f3a7b3e2d0db0e7cf1287bf7c05d80e75fa1f"
     }
   },
   "stats": {
     "live": true,
-    "generated": "2026-08-18T20:58:48+00:00",
+    "generated": "2026-08-19T20:54:12+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
@@ -2621,6 +2661,11 @@
       "owners_buildings": 60000,
       "buyer_calls": 100
     },
+    "performance": {
+      "pricing_accuracy": 96.7,
+      "median_days_on_market": 34,
+      "source": "https://www.laaa.com/track-record"
+    },
     "portfolio_track_record": {
       "all": {
         "count": 493,
@@ -2637,250 +2682,6 @@
       "local_basis": {
         "type": "not_applicable",
         "label": "not applicable to a portfolio-wide summary"
-      }
-    }
-  },
-  "active_listings": {
-    "source": "https://www.laaa.com/listings?type=multifamily",
-    "pulled": "2026-08-19T16:34:20+00:00",
-    "filter": "propertyType=Multifamily, status in (available, in-escrow)",
-    "rows": [
-      {
-        "street": "10455 Magnolia Blvd",
-        "city": "North Hollywood, CA",
-        "slug": "10455-magnolia",
-        "units": 26,
-        "asking_price": 9200000,
-        "cap_rate": 5.03,
-        "status": "available"
-      },
-      {
-        "street": "180 Holly Avenue",
-        "city": "Carpinteria, CA",
-        "slug": "180-holly",
-        "units": 19,
-        "asking_price": 8950000,
-        "cap_rate": 4.8,
-        "status": "available"
-      },
-      {
-        "street": "2727 3rd Street",
-        "city": "Santa Monica, CA",
-        "slug": "2727-3rd",
-        "units": 22,
-        "asking_price": 7650000,
-        "cap_rate": 5.16,
-        "status": "available"
-      },
-      {
-        "street": "31701 Ridge Route Rd",
-        "city": "Castaic, CA",
-        "slug": "31701-ridge-route",
-        "units": 33,
-        "asking_price": 7500000,
-        "cap_rate": 5.64,
-        "status": "available"
-      },
-      {
-        "street": "3607 Pacific Ave",
-        "city": "Marina del Rey, CA",
-        "slug": "3607-pacific",
-        "units": 6,
-        "asking_price": 5395000,
-        "cap_rate": 4.75,
-        "status": "available"
-      },
-      {
-        "street": "2001-2005 Grismer Avenue",
-        "city": "Burbank, CA",
-        "slug": "2001-2005-grismer",
-        "units": 14,
-        "asking_price": 5350000,
-        "cap_rate": 4.56,
-        "status": "available"
-      },
-      {
-        "street": "755 E Pine Street",
-        "city": "Altadena, CA",
-        "slug": "755-e-pine",
-        "units": 19,
-        "asking_price": 5195000,
-        "cap_rate": 6.68,
-        "status": "available"
-      },
-      {
-        "street": "7018 Alabama Ave",
-        "city": "Canoga Park, CA",
-        "slug": "7018-alabama",
-        "units": 9,
-        "asking_price": 5100000,
-        "cap_rate": 5.27,
-        "status": "available"
-      },
-      {
-        "street": "4603 La Mirada Avenue & 1255 Lyman Place",
-        "city": "Los Angeles, CA",
-        "slug": "4603-la-mirada-1255-lyman",
-        "units": 9,
-        "asking_price": 4450000,
-        "cap_rate": 5.28,
-        "status": "available"
-      },
-      {
-        "street": "24846 Walnut St",
-        "city": "Santa Clarita, CA",
-        "slug": "24846-walnut",
-        "units": 16,
-        "asking_price": 4200000,
-        "cap_rate": 5.13,
-        "status": "available"
-      },
-      {
-        "street": "12314 & 12320 Washington Pl",
-        "city": "Culver City, CA",
-        "slug": "12314-12320-washington",
-        "units": 8,
-        "asking_price": 3096000,
-        "cap_rate": 4.78,
-        "status": "available"
-      },
-      {
-        "street": "11025 Blix St",
-        "city": "Toluca Lake, CA",
-        "slug": "11025-blix",
-        "units": 4,
-        "asking_price": 2700000,
-        "cap_rate": 5.27,
-        "status": "available"
-      },
-      {
-        "street": "1303-1305 Laveta Terrace",
-        "city": "Los Angeles, CA",
-        "slug": "laveta",
-        "units": 10,
-        "asking_price": 2590000,
-        "cap_rate": 4.24,
-        "status": "available"
-      },
-      {
-        "street": "1807 Montana Street",
-        "city": "Los Angeles, CA",
-        "slug": "1807-montana",
-        "units": 4,
-        "asking_price": 2395000,
-        "cap_rate": 5.84,
-        "status": "available"
-      },
-      {
-        "street": "5614 W Adams Blvd",
-        "city": "Los Angeles, CA",
-        "slug": "5614-w-adams",
-        "units": 7,
-        "asking_price": 1795000,
-        "cap_rate": 6.52,
-        "status": "available"
-      },
-      {
-        "street": "24513-24519 Walnut St",
-        "city": "Santa Clarita, CA",
-        "slug": "24513-24519-walnut",
-        "units": 3,
-        "asking_price": 1095000,
-        "cap_rate": 4.31,
-        "status": "available"
-      },
-      {
-        "street": "20234 Roscoe Blvd",
-        "city": "Winnetka, CA",
-        "slug": "20234-roscoe",
-        "units": 25,
-        "asking_price": 4750000,
-        "cap_rate": 5.51,
-        "status": "in-escrow"
-      },
-      {
-        "street": "10814-10818 Blix St",
-        "city": "North Hollywood, CA",
-        "slug": "10814-blix",
-        "units": 18,
-        "asking_price": 4495000,
-        "cap_rate": 6.24,
-        "status": "in-escrow"
-      },
-      {
-        "street": "13915 Sherman Way",
-        "city": "Van Nuys, CA",
-        "slug": "13915-sherman-way",
-        "units": 15,
-        "asking_price": 3750000,
-        "cap_rate": 5.8,
-        "status": "in-escrow"
-      },
-      {
-        "street": "3361 Hamilton Way",
-        "city": "Los Angeles, CA",
-        "slug": "3361-hamilton",
-        "units": 4,
-        "asking_price": 2800000,
-        "cap_rate": 5.62,
-        "status": "in-escrow"
-      },
-      {
-        "street": "24802 & 24806 Walnut St",
-        "city": "Santa Clarita, CA",
-        "slug": "24802-24806-walnut",
-        "units": 7,
-        "asking_price": 1725000,
-        "cap_rate": 5.31,
-        "status": "in-escrow"
-      }
-    ],
-    "summary": {
-      "listings": 21,
-      "units": 278,
-      "asking_total": 94181000,
-      "blended_price_per_unit": 338781,
-      "median_cap_rate": 5.27,
-      "basis": "sums for units/price; blended $/unit = asking_total/units; median of listed cap rates"
-    },
-    "link_pattern": "https://www.laaa.com/om/{slug} (all 21 verified 200 on 2026-08-19)"
-  },
-  "experience_claim": {
-    "value": "45+",
-    "method": "Sum of years since each licensed agent's CA DRE license issue date, checked 2026-08-19; exact sum 47.8 years, floored per agent 44, published claim 45+.",
-    "source": "https://www2.dre.ca.gov/PublicASP/pplinfo.asp",
-    "agents": {
-      "Filip Niculete": {
-        "license": "01905352",
-        "issued": "2012-01-03"
-      },
-      "Glen Scher": {
-        "license": "01962976",
-        "issued": "2014-09-18"
-      },
-      "Aida Memary Scher": {
-        "license": "01980240",
-        "issued": "2015-06-30"
-      },
-      "Morgan Wetmore": {
-        "license": "02209935",
-        "issued": "2023-08-04"
-      },
-      "Logan Ward": {
-        "license": "02200464",
-        "issued": "2022-12-02"
-      },
-      "Luka Leader": {
-        "license": "02245434",
-        "issued": "2024-08-07"
-      },
-      "Blake Lewitt": {
-        "license": "02363670",
-        "issued": "2025-12-02"
-      },
-      "Alexandro Tapia": {
-        "license": "02366379",
-        "issued": "2025-12-19"
       }
     }
   }

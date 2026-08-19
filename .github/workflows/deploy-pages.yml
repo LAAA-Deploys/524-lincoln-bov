@@ -4,7 +4,7 @@ name: Deploy website
 # audits it runs. The build overwrites them on every run, so a deal repo cannot
 # drift onto an old copy of the checks.
 #
-# Deployment is manual after Glen approves the reviewed site. The workflow runs
+# Deployment is manual after the deal's lead agent approves the reviewed site. The workflow runs
 # the full gate and runtime audits immediately before publishing, so approval
 # never bypasses verification and an ordinary push cannot publish by accident.
 
@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Bind dispatch to Glen-approved SHA
+      - name: Bind dispatch to lead-approved SHA
         if: github.event_name == 'workflow_dispatch'
         env:
           APPROVED_SHA: ${{ inputs.approved_sha }}
