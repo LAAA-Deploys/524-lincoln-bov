@@ -141,6 +141,10 @@
       [
         "{apt_units}",
         "Apartment Units Sold"
+      ],
+      [
+        "45+",
+        "Combined Years of Experience"
       ]
     ],
     "narrative": [
@@ -2831,5 +2835,44 @@
         "status": "in-escrow"
       }
     ]
+  },
+  "experience_claim": {
+    "value": "45+",
+    "method": "Sum of years since each licensed agent's CA DRE license issue date, checked 2026-08-19; exact sum 47.8 years, floored per agent 44, published claim 45+.",
+    "source": "https://www2.dre.ca.gov/PublicASP/pplinfo.asp",
+    "agents": {
+      "Filip Niculete": {
+        "license": "01905352",
+        "issued": "2012-01-03"
+      },
+      "Glen Scher": {
+        "license": "01962976",
+        "issued": "2014-09-18"
+      },
+      "Aida Memary Scher": {
+        "license": "01980240",
+        "issued": "2015-06-30"
+      },
+      "Morgan Wetmore": {
+        "license": "02209935",
+        "issued": "2023-08-04"
+      },
+      "Logan Ward": {
+        "license": "02200464",
+        "issued": "2022-12-02"
+      },
+      "Luka Leader": {
+        "license": "02245434",
+        "issued": "2024-08-07"
+      },
+      "Blake Lewitt": {
+        "license": "02363670",
+        "issued": "2025-12-02"
+      },
+      "Alexandro Tapia": {
+        "license": "02366379",
+        "issued": "2025-12-19"
+      }
+    }
   }
 }
