@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="laaa-figures-pulled" content="2026-08-19T23:34:30+00:00">
+<meta name="laaa-figures-pulled" content="2026-08-19T23:41:09+00:00">
 <meta name="description" content="10-Unit Multifamily Investment - Pasadena, CA 91103 | LAAA Team - Marcus &amp; Millichap">
 <meta property="og:title" content="Broker Opinion of Value - 524 Lincoln Ave">
 <meta property="og:description" content="10-Unit Multifamily Investment - Pasadena, CA 91103 | LAAA Team - Marcus &amp; Millichap">
@@ -125,9 +125,12 @@ td.num, th.num { text-align: right; }
    phones and left a dead white block under the photo. .bio-* stays untouched
    above because the portfolio hub's property cards share those classes. */
 .lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
-/* An odd lead count leaves the last card orphaned beside a white void, so it
-   spans the row instead, the way East Palmdale runs its full-width cards. */
-.lead-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+/* An odd lead count: the last card sits CENTERED on its own row at the exact
+   same width as the others (half the grid minus half the gap), never spanning
+   full width. The full-width version shipped once and a one-sentence bio ran
+   the whole container width, which read as a stretched banner (Glen,
+   2026-08-19: same width and height so all looks normal). */
+.lead-card:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 10px); justify-self: center; }
 .lead-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); grid-template-rows: auto auto auto; grid-template-areas: "photo head" "photo bio" "photo contact"; column-gap: 20px; align-content: start; background: #fff; border: 1px solid #e5e9f0; border-radius: 12px; padding: 20px; box-shadow: 0 1px 6px rgba(27,58,92,0.06); }
 .lead-photo { grid-area: photo; width: 150px; height: 178px; border-radius: 10px; object-fit: cover; object-position: top; background: #f0f4f8; }
 .lead-head { grid-area: head; }
@@ -291,6 +294,7 @@ td.num, th.num { text-align: right; }
   /* Photo spans only the header row here; bio and contacts continue full
      width beneath it. This is the East Palmdale mobile dead-space fix. */
   .lead-grid { grid-template-columns: 1fr; gap: 14px; }
+  .lead-card:last-child:nth-child(odd) { width: 100%; }
   .lead-card { grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "photo head" "bio bio" "contact contact"; column-gap: 14px; padding: 16px; }
   .lead-photo { width: 96px; height: 114px; }
   .lead-head { align-self: center; }
