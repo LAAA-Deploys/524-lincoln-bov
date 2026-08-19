@@ -57,9 +57,10 @@ def _one(copy: dict, section: str, field: str) -> str:
     return values[0]
 
 
-def _paired(copy: dict, section: str, titles: str, bodies: str) -> list[dict[str, str]]:
-    title_values = _paragraphs(copy, section, titles)
-    body_values = _paragraphs(copy, section, bodies)
+def _paired(copy: dict, section: str, titles: str, bodies: str,
+            *, required: bool = True) -> list[dict[str, str]]:
+    title_values = _paragraphs(copy, section, titles, required=required)
+    body_values = _paragraphs(copy, section, bodies, required=required)
     if len(title_values) != len(body_values):
         raise PayloadError(f"blocks.{section}.{titles} and .{bodies} must have equal lengths")
     return [
@@ -1039,6 +1040,16 @@ def build_payload(workspace: DealWorkspace) -> dict:
                 for item in _paired(copy, "marketing", "channel_titles", "channel_copy")
             ],
             "narrative": _paragraphs(copy, "marketing", "narrative"),
+            # Both optional, both were hardcoded in blocks.marketing. The pull
+            # quote and the three difference blocks are the most deal-specific
+            # marketing copy on the page (East Palmdale names the Antelope
+            # Valley buyer pool and the 1031 buyers who trade that size class),
+            # and a literal in the renderer cannot say any of that. Absent from
+            # the spine, blocks.marketing falls back to the locked defaults, so
+            # every existing deal renders exactly as before.
+            "pull_quote": (_paragraphs(copy, "marketing", "pull_quote", required=False) or [None])[0],
+            "differences": _paired(copy, "marketing", "difference_titles",
+                                   "difference_copy", required=False),
         },
         "properties": [property_payload],
         "regulatory_conclusions": deal["regulatory_conclusions"],

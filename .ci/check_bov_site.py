@@ -123,11 +123,30 @@ SECTION_ORDER = ["track-record", "marketing", "active-listings", "property-info"
                  "opinion-of-value", "on-market",
                  "financials", "contact"]
 
+#: Every finding, as (message, declared_class). `declared_class` is None when
+#: the raising check left classification to `report`, and a bool when the check
+#: declared the class outright.
 fails, warns = [], []
 
 
-def fail(msg):
-    fails.append(msg)
+def fail(msg, blocking=None):
+    """Record a failure, optionally DECLARING whether it blocks.
+
+    Left as None, `report` infers the class by matching the message text
+    against `_BLOCKING_PATTERNS`, which is how every check here still behaves.
+    That inference is a guess about prose, and the guess has been wrong twice.
+    The certified-map tamper class printed as advisory and the gate exited 0
+    until "map-manifest" was added to the pattern list. Check 19's
+    artifact-scope refusals printed as advisory for the same reason: none of
+    their wording happens to contain a listed substring, so an internal
+    approval record sitting in a PUBLIC deal repository was reported as a
+    finding that creates no work.
+
+    A check that already knows its class says so here. No later rewording of
+    the message can lose it, and the pattern list stops being the only place a
+    blocking class can be declared.
+    """
+    fails.append((msg, blocking))
 
 
 def warn(msg):
@@ -646,8 +665,13 @@ def main(site):
     # approval-record.json in advance, and nobody did. This gate classifies
     # files, never their contents; addresses and escrow references are ordinary
     # BOV substance and nothing here inspects a string.
+    #
+    # BLOCKING is declared here rather than left to the text match below. Every
+    # message this emits names a FILE and a class of artifact, deliberately
+    # never a price, an address or a credential, so it matched none of the
+    # blocking patterns and the entire check printed as advisory.
     for message in _site_artifacts().artifact_scope_errors(site, property_slugs):
-        fail(message)
+        fail(message, blocking=True)
 
     return report(site, pages)
 
@@ -674,6 +698,15 @@ def main(site):
 #                 printed the tamper finding as advisory and exited 0.
 # Everything else (fonts, colors, section order, nav, spacing, copy, image
 # dimensions) reports and continues.
+#
+# One class is NOT matched here and must not be:
+#   confidentiality  an internal deliberation artifact in a public deploy
+#                 repository (check 19). It is declared at the call site with
+#                 `fail(..., blocking=True)`, because its messages name a file
+#                 and an artifact class and never quote content, so there is no
+#                 honest substring to match. The same split that missed maps
+#                 missed this one, and the consequence is the exact leak
+#                 site_artifacts.py exists to stop.
 _BLOCKING_PATTERNS = (
     "framework", "react", "vite", "next.js", "svelte", "astro", "remix",
     "slidev", "bundler", "hydration", "module script", "/assets/index-",
@@ -690,11 +723,16 @@ def _is_blocking(message):
     return any(p in m for p in _BLOCKING_PATTERNS)
 
 
+def _blocks(message, declared):
+    """A class declared by the raising check wins; text matching is the fallback."""
+    return _is_blocking(message) if declared is None else declared
+
+
 def report(site, pages):
     print(f"\nBOV SITE GATE  {site}")
     print(f"checked {len(pages)} route file(s): {', '.join(str(p.relative_to(site)) for p in pages)}\n")
-    blocking = [f for f in fails if _is_blocking(f)]
-    advisory = [f for f in fails if not _is_blocking(f)]
+    blocking = [m for m, declared in fails if _blocks(m, declared)]
+    advisory = [m for m, declared in fails if not _blocks(m, declared)]
     for w in warns:
         print(f"  warn  {w}")
     for a in advisory:

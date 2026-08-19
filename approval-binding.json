@@ -3,8 +3,8 @@
   "scope": "deal",
   "deal_id": "524-lincoln-ave-pasadena",
   "portfolio_id": null,
-  "package_version": "v7",
-  "approved_at": "2026-08-19T21:29:40.530198+00:00",
+  "package_version": "v8",
+  "approved_at": "2026-08-19T23:10:04.749651+00:00",
   "approver": "Glen Scher",
   "price": {
     "value": 2840000
@@ -12,7 +12,7 @@
   "approved_exception_ids": [],
   "domains": {
     "copy": {
-      "content_sha256": "65686c759c0d7e2002159278e013af1981f5dca06219fd7939751759e70354a0"
+      "content_sha256": "6a395109bca2792329b31414d22b54adaf680a92e05e1479c5140d90058141dd"
     },
     "financial_inputs": {
       "content_sha256": "23e98ee82218c5c56db425e3a038f65aeb5d0a2f875d946600937da00927d961"

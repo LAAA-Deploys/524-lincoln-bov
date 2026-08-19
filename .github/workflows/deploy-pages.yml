@@ -4,7 +4,7 @@ name: Deploy website
 # audits it runs. The build overwrites them on every run, so a deal repo cannot
 # drift onto an old copy of the checks.
 #
-# Deployment is manual after the deal's lead agent approves the reviewed site. The workflow runs
+# Deployment is manual after either partner approves the reviewed site. The workflow runs
 # the full gate and runtime audits immediately before publishing, so approval
 # never bypasses verification and an ordinary push cannot publish by accident.
 
@@ -29,9 +29,20 @@ permissions:
   # validation run, which is what the freshness exemption below is bound to.
   actions: read
 
+# One global `pages` group used to hold BOTH the push validations and the
+# release dispatches, so a dispatch queued behind a run that validates and
+# never publishes. On 2026-08-19 that put a release 21 minutes behind a
+# validation run and it had to be cancelled by hand twice to get the deploy
+# out. Splitting by event removes the wait entirely:
+#
+#   push       supersedes itself. A newer push makes an older validation
+#              pointless, so cancel it rather than making anyone wait for it.
+#   dispatch   never cancelled, and never queues behind a validation. Two
+#              dispatches still serialize against each other, which is the one
+#              case that genuinely must not race: concurrent Pages deploys.
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: pages-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
   validate:
@@ -42,7 +53,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Bind dispatch to lead-approved SHA
+      - name: Bind dispatch to the approved SHA
         if: github.event_name == 'workflow_dispatch'
         env:
           APPROVED_SHA: ${{ inputs.approved_sha }}

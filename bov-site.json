@@ -144,7 +144,8 @@
       ]
     ],
     "narrative": [
-      "The LAAA Team has closed {closed} transactions totaling {volume} across {geo}, including {apt_closed} apartment sales covering {apt_units} units."
+      "Of those closed transactions, {apt_closed} are apartment sales covering {apt_units} units, and the record spans {geo}.",
+      "That record is built on the same discipline applied here: verified rent rolls and operating statements, comparable sales confirmed against recorded deeds rather than aggregator data, and a value conclusion a buyer's lender can follow."
     ],
     "achievements": [
       [
@@ -202,7 +203,24 @@
       ]
     ],
     "narrative": [
-      "The proposed campaign combines direct buyer outreach, the Marcus & Millichap platform, and a dedicated digital presentation."
+      "Most brokers are reactive. They post the listing, run an email blast, and wait for the phone to ring. We do all of that, and we do it well. Then we do the part almost nobody does. We pick up the phone.",
+      "Before your building goes to market, our system builds a probable buyer list for it specifically. It pulls the county assessment record for every property in the surrounding area: who owns it, where their mail goes, what they paid, when they bought, who financed it, and how many other buildings they hold. Out of that come the three groups most likely to buy your building: owners of comparable product nearby, buyers who have closed on buildings like yours recently, and exchange buyers with money that has to be placed on a deadline.",
+      "That list runs well over 100 names, and we call every one of them."
+    ],
+    "pull_quote": "We are proactive marketers, not reactive.",
+    "differences": [
+      {
+        "title": "Direct owner and buyer outreach",
+        "copy": "Named calls into the Pasadena and San Gabriel Valley buyer pool, the 1031 exchange buyers who have traded in this size class, and the private capital already holding product in Pasadena."
+      },
+      {
+        "title": "Marcus & Millichap platform",
+        "copy": "National listing distribution, the firm's investor database, and coordination with MMCC on debt terms so a buyer arrives pre-qualified rather than exploring."
+      },
+      {
+        "title": "Dedicated digital presentation",
+        "copy": "A property-specific offering site, targeted email, and syndication to the platforms Pasadena buyers actually search."
+      }
     ]
   },
   "properties": [
@@ -996,7 +1014,8 @@
       "blocks": {
         "track_record": {
           "narrative": [
-            "The LAAA Team has closed {closed} transactions totaling {volume} across {geo}, including {apt_closed} apartment sales covering {apt_units} units."
+            "Of those closed transactions, {apt_closed} are apartment sales covering {apt_units} units, and the record spans {geo}.",
+            "That record is built on the same discipline applied here: verified rent rolls and operating statements, comparable sales confirmed against recorded deeds rather than aggregator data, and a value conclusion a buyer's lender can follow."
           ],
           "achievements": [
             "Chairman's Club | Marcus & Millichap's top-tier annual honor",
@@ -1036,8 +1055,23 @@
             "Four units are vacant and ready to lease. Presented as immediate lease-up rather than as a vacancy problem, that is the clearest path a buyer has to grow income from day one.",
             "Anchor the price conversation on the condition gap against the comparable sales, then let the day-one yield carry the rest."
           ],
+          "pull_quote": [
+            "We are proactive marketers, not reactive."
+          ],
+          "difference_titles": [
+            "Direct owner and buyer outreach",
+            "Marcus & Millichap platform",
+            "Dedicated digital presentation"
+          ],
+          "difference_copy": [
+            "Named calls into the Pasadena and San Gabriel Valley buyer pool, the 1031 exchange buyers who have traded in this size class, and the private capital already holding product in Pasadena.",
+            "National listing distribution, the firm's investor database, and coordination with MMCC on debt terms so a buyer arrives pre-qualified rather than exploring.",
+            "A property-specific offering site, targeted email, and syndication to the platforms Pasadena buyers actually search."
+          ],
           "narrative": [
-            "The proposed campaign combines direct buyer outreach, the Marcus & Millichap platform, and a dedicated digital presentation."
+            "Most brokers are reactive. They post the listing, run an email blast, and wait for the phone to ring. We do all of that, and we do it well. Then we do the part almost nobody does. We pick up the phone.",
+            "Before your building goes to market, our system builds a probable buyer list for it specifically. It pulls the county assessment record for every property in the surrounding area: who owns it, where their mail goes, what they paid, when they bought, who financed it, and how many other buildings they hold. Out of that come the three groups most likely to buy your building: owners of comparable product nearby, buyers who have closed on buildings like yours recently, and exchange buyers with money that has to be placed on a deadline.",
+            "That list runs well over 100 names, and we call every one of them."
           ]
         },
         "investment": {
@@ -1123,7 +1157,16 @@
             "sources:team-stats"
           ],
           "framed_as": null,
-          "text": "The LAAA Team has closed {closed} transactions totaling {volume} across {geo}, including {apt_closed} apartment sales covering {apt_units} units."
+          "text": "Of those closed transactions, {apt_closed} are apartment sales covering {apt_units} units, and the record spans {geo}."
+        },
+        {
+          "id": "track-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "method",
+          "text": "That record is built on the same discipline applied here: verified rent rolls and operating statements, comparable sales confirmed against recorded deeds rather than aggregator data, and a value conclusion a buyer's lender can follow."
         },
         {
           "id": "achievement-1",
@@ -1343,13 +1386,94 @@
           "text": "Anchor the price conversation on the condition gap against the comparable sales, then let the day-one yield carry the rest."
         },
         {
-          "id": "marketing-1",
+          "id": "marketing-quote",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "positioning",
+          "text": "We are proactive marketers, not reactive."
+        },
+        {
+          "id": "difference-1",
           "claim_type": "broker_opinion",
           "support_refs": [
             "sources:team-stats"
           ],
           "framed_as": "proposed campaign",
-          "text": "The proposed campaign combines direct buyer outreach, the Marcus & Millichap platform, and a dedicated digital presentation."
+          "text": "Direct owner and buyer outreach"
+        },
+        {
+          "id": "difference-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Marcus & Millichap platform"
+        },
+        {
+          "id": "difference-3",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Dedicated digital presentation"
+        },
+        {
+          "id": "difference-copy-1",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Named calls into the Pasadena and San Gabriel Valley buyer pool, the 1031 exchange buyers who have traded in this size class, and the private capital already holding product in Pasadena."
+        },
+        {
+          "id": "difference-copy-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "National listing distribution, the firm's investor database, and coordination with MMCC on debt terms so a buyer arrives pre-qualified rather than exploring."
+        },
+        {
+          "id": "difference-copy-3",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "A property-specific offering site, targeted email, and syndication to the platforms Pasadena buyers actually search."
+        },
+        {
+          "id": "marketing-1",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "positioning",
+          "text": "Most brokers are reactive. They post the listing, run an email blast, and wait for the phone to ring. We do all of that, and we do it well. Then we do the part almost nobody does. We pick up the phone."
+        },
+        {
+          "id": "marketing-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Before your building goes to market, our system builds a probable buyer list for it specifically. It pulls the county assessment record for every property in the surrounding area: who owns it, where their mail goes, what they paid, when they bought, who financed it, and how many other buildings they hold. Out of that come the three groups most likely to buy your building: owners of comparable product nearby, buyers who have closed on buildings like yours recently, and exchange buyers with money that has to be placed on a deadline."
+        },
+        {
+          "id": "marketing-3",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "That list runs well over 100 names, and we call every one of them."
         },
         {
           "id": "highlight-1",
@@ -1704,7 +1828,8 @@
       "blocks": {
         "track_record": {
           "narrative": [
-            "The LAAA Team has closed {closed} transactions totaling {volume} across {geo}, including {apt_closed} apartment sales covering {apt_units} units."
+            "Of those closed transactions, {apt_closed} are apartment sales covering {apt_units} units, and the record spans {geo}.",
+            "That record is built on the same discipline applied here: verified rent rolls and operating statements, comparable sales confirmed against recorded deeds rather than aggregator data, and a value conclusion a buyer's lender can follow."
           ],
           "achievements": [
             "Chairman's Club | Marcus & Millichap's top-tier annual honor",
@@ -1744,8 +1869,23 @@
             "Four units are vacant and ready to lease. Presented as immediate lease-up rather than as a vacancy problem, that is the clearest path a buyer has to grow income from day one.",
             "Anchor the price conversation on the condition gap against the comparable sales, then let the day-one yield carry the rest."
           ],
+          "pull_quote": [
+            "We are proactive marketers, not reactive."
+          ],
+          "difference_titles": [
+            "Direct owner and buyer outreach",
+            "Marcus & Millichap platform",
+            "Dedicated digital presentation"
+          ],
+          "difference_copy": [
+            "Named calls into the Pasadena and San Gabriel Valley buyer pool, the 1031 exchange buyers who have traded in this size class, and the private capital already holding product in Pasadena.",
+            "National listing distribution, the firm's investor database, and coordination with MMCC on debt terms so a buyer arrives pre-qualified rather than exploring.",
+            "A property-specific offering site, targeted email, and syndication to the platforms Pasadena buyers actually search."
+          ],
           "narrative": [
-            "The proposed campaign combines direct buyer outreach, the Marcus & Millichap platform, and a dedicated digital presentation."
+            "Most brokers are reactive. They post the listing, run an email blast, and wait for the phone to ring. We do all of that, and we do it well. Then we do the part almost nobody does. We pick up the phone.",
+            "Before your building goes to market, our system builds a probable buyer list for it specifically. It pulls the county assessment record for every property in the surrounding area: who owns it, where their mail goes, what they paid, when they bought, who financed it, and how many other buildings they hold. Out of that come the three groups most likely to buy your building: owners of comparable product nearby, buyers who have closed on buildings like yours recently, and exchange buyers with money that has to be placed on a deadline.",
+            "That list runs well over 100 names, and we call every one of them."
           ]
         },
         "investment": {
@@ -1831,7 +1971,16 @@
             "sources:team-stats"
           ],
           "framed_as": null,
-          "text": "The LAAA Team has closed {closed} transactions totaling {volume} across {geo}, including {apt_closed} apartment sales covering {apt_units} units."
+          "text": "Of those closed transactions, {apt_closed} are apartment sales covering {apt_units} units, and the record spans {geo}."
+        },
+        {
+          "id": "track-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "method",
+          "text": "That record is built on the same discipline applied here: verified rent rolls and operating statements, comparable sales confirmed against recorded deeds rather than aggregator data, and a value conclusion a buyer's lender can follow."
         },
         {
           "id": "achievement-1",
@@ -2051,13 +2200,94 @@
           "text": "Anchor the price conversation on the condition gap against the comparable sales, then let the day-one yield carry the rest."
         },
         {
-          "id": "marketing-1",
+          "id": "marketing-quote",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "positioning",
+          "text": "We are proactive marketers, not reactive."
+        },
+        {
+          "id": "difference-1",
           "claim_type": "broker_opinion",
           "support_refs": [
             "sources:team-stats"
           ],
           "framed_as": "proposed campaign",
-          "text": "The proposed campaign combines direct buyer outreach, the Marcus & Millichap platform, and a dedicated digital presentation."
+          "text": "Direct owner and buyer outreach"
+        },
+        {
+          "id": "difference-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Marcus & Millichap platform"
+        },
+        {
+          "id": "difference-3",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Dedicated digital presentation"
+        },
+        {
+          "id": "difference-copy-1",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Named calls into the Pasadena and San Gabriel Valley buyer pool, the 1031 exchange buyers who have traded in this size class, and the private capital already holding product in Pasadena."
+        },
+        {
+          "id": "difference-copy-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "National listing distribution, the firm's investor database, and coordination with MMCC on debt terms so a buyer arrives pre-qualified rather than exploring."
+        },
+        {
+          "id": "difference-copy-3",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "A property-specific offering site, targeted email, and syndication to the platforms Pasadena buyers actually search."
+        },
+        {
+          "id": "marketing-1",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "positioning",
+          "text": "Most brokers are reactive. They post the listing, run an email blast, and wait for the phone to ring. We do all of that, and we do it well. Then we do the part almost nobody does. We pick up the phone."
+        },
+        {
+          "id": "marketing-2",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "Before your building goes to market, our system builds a probable buyer list for it specifically. It pulls the county assessment record for every property in the surrounding area: who owns it, where their mail goes, what they paid, when they bought, who financed it, and how many other buildings they hold. Out of that come the three groups most likely to buy your building: owners of comparable product nearby, buyers who have closed on buildings like yours recently, and exchange buyers with money that has to be placed on a deadline."
+        },
+        {
+          "id": "marketing-3",
+          "claim_type": "broker_opinion",
+          "support_refs": [
+            "sources:team-stats"
+          ],
+          "framed_as": "proposed campaign",
+          "text": "That list runs well over 100 names, and we call every one of them."
         },
         {
           "id": "highlight-1",
@@ -2625,7 +2855,7 @@
       "pricing_decision": "6682b90a49e0e0fce54e989172ffb9a6370c447507eb44918740dfa6e3fecdd5",
       "sale_comps": "624dccd5cc8d9535fe41575cf61d400d33dd946941bf68023dc064eea11ca5c6",
       "rent_comps": "5a5174161f89cf5c17a89760cb8ef3d89faa9c2b0cf8f2834e0a444e359c9e7f",
-      "copy": "65686c759c0d7e2002159278e013af1981f5dca06219fd7939751759e70354a0",
+      "copy": "6a395109bca2792329b31414d22b54adaf680a92e05e1479c5140d90058141dd",
       "media_selection": "559cedd9f76f8e75e88c0773fc09daec4e58dde3ca4729189d4ebcde3de63804",
       "regulatory_conclusions": "abd49f70027cc453b1e5e6841d10613e839b1ff7f23c3e956adea872cf02d0f3"
     },
@@ -2635,14 +2865,14 @@
       "pricing_decision": "acf4d333b3e3a9e799bc213ebe3125202e84914a2182fffd3e6af642b92346ae",
       "sale_comps": "c09cfcbedcf1a8ec73ce97f6248ecc571feb06d2b1d301e7baf05e76786e04cf",
       "rent_comps": "2083e6488114224958bc9b0d2002305943951d47fd0d42ee30ccf9c7287e2955",
-      "copy": "2eda6f34936d4d309e8b0cc608f545a8e40bd5db786c4176c8bd0eb6aec76661",
+      "copy": "d21dcfffbd673d8af479a2416890cf571d96fbfbcb55fbfce1a303ba0d51704f",
       "media_selection": "e73b021894c08db95aee5dcaa58597b66479f93570037b75d6b8fd767381c09c",
       "regulatory_conclusions": "d059b0772b4eb9df59d7cbfac07f3a7b3e2d0db0e7cf1287bf7c05d80e75fa1f"
     }
   },
   "stats": {
     "live": true,
-    "generated": "2026-08-19T21:28:53+00:00",
+    "generated": "2026-08-19T23:10:09+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
