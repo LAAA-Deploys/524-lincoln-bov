@@ -33,8 +33,7 @@
         "email": "Morgan.Wetmore@marcusmillichap.com",
         "license": "CA License: 02209935",
         "headshot": "images/headshot_morgan-wetmore.jpg",
-        "bio": "Morgan Wetmore supports the assignment on underwriting and marketing coordination.",
-        "role_kicker": "Assignment Team"
+        "bio": "Morgan Wetmore supports the assignment on underwriting and marketing coordination."
       },
       {
         "name": "Glen Scher",
@@ -2853,7 +2852,7 @@
   "approval_binding": {
     "deal_id": "524-lincoln-ave-pasadena",
     "domains": {
-      "identity": "a89e1fd6514a2d20fb24eb1316c2c8fb2a3efea69cfa917a186fae9cacaec5da",
+      "identity": "c212904dade64c0b30a8eabdcdc773bbd7edc6239a62e39ca3695a113251b37d",
       "financial_inputs": "23e98ee82218c5c56db425e3a038f65aeb5d0a2f875d946600937da00927d961",
       "pricing_decision": "6682b90a49e0e0fce54e989172ffb9a6370c447507eb44918740dfa6e3fecdd5",
       "sale_comps": "624dccd5cc8d9535fe41575cf61d400d33dd946941bf68023dc064eea11ca5c6",
@@ -2863,7 +2862,7 @@
       "regulatory_conclusions": "abd49f70027cc453b1e5e6841d10613e839b1ff7f23c3e956adea872cf02d0f3"
     },
     "presentation_hashes": {
-      "identity": "95e4fb27413ba89fe9d894bdd5e1eca7c89aaae1c1712efe03bbbc6598b376db",
+      "identity": "e1e04fd22a60f9256d036da4d45fca506a92933bc31d6b82466908a103781b8b",
       "financial_inputs": "3ab4741d184377d6c967676688362f65e9a8b28c5a714e5a80ac16ba4db9c8d0",
       "pricing_decision": "acf4d333b3e3a9e799bc213ebe3125202e84914a2182fffd3e6af642b92346ae",
       "sale_comps": "c09cfcbedcf1a8ec73ce97f6248ecc571feb06d2b1d301e7baf05e76786e04cf",
@@ -2875,7 +2874,7 @@
   },
   "stats": {
     "live": true,
-    "generated": "2026-08-19T23:41:09+00:00",
+    "generated": "2026-08-19T23:43:51+00:00",
     "geography": {
       "states": 21,
       "has_dc": true,
